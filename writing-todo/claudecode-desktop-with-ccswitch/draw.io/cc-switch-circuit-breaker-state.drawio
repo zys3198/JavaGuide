@@ -1,0 +1,84 @@
+<mxfile host="Electron" agent="drawio-chart">
+  <diagram name="Circuit Breaker" id="cb-state">
+    <mxGraphModel dx="1160" dy="697" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="480" background="#F8FAFC" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=20;fontStyle=1;fontColor=#2D3748;" value="断路器：请求驱动状态机" vertex="1">
+          <mxGeometry height="35" width="260" x="310" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="entry" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#0891B2;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="请求到来" vertex="1">
+          <mxGeometry height="45" width="130" x="370" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="dec" parent="1" style="rhombus;whiteSpace=wrap;fillColor=#005D7B;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="当前状态?" vertex="1">
+          <mxGeometry height="80" width="140" x="365" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="healthy" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#4CA497;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="Healthy&#xa;请求通过" vertex="1">
+          <mxGeometry height="55" width="150" x="60" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="open" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#DC2626;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="Open&#xa;拒绝跳过" vertex="1">
+          <mxGeometry height="55" width="140" x="365" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="halfopen" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#E99151;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="Half-Open&#xa;放行探测" vertex="1">
+          <mxGeometry height="55" width="150" x="660" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="to-open" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#DC2626;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=14;shadow=1;" value="连续失败&#xa;&gt; 阈值" vertex="1">
+          <mxGeometry height="50" width="150" x="60" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="to-healthy" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#4CA497;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=14;shadow=1;" value="探测成功&#xa;→ 恢复" vertex="1">
+          <mxGeometry height="50" width="140" x="570" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="to-open2" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#DC2626;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=14;shadow=1;" value="探测失败&#xa;→ 熔断" vertex="1">
+          <mxGeometry height="50" width="120" x="780" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="e-entry" edge="1" parent="1" source="entry" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dec" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-dh" edge="1" parent="1" source="dec" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#4CA497;labelBackgroundColor=#F8FAFC;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=12;fontColor=#4CA497;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="healthy" value="Healthy">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="135" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-do" edge="1" parent="1" source="dec" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#DC2626;labelBackgroundColor=#F8FAFC;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=12;fontColor=#DC2626;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="open" value="Open">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-dho" edge="1" parent="1" source="dec" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#E99151;labelBackgroundColor=#F8FAFC;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=12;fontColor=#E99151;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="halfopen" value="Half-Open">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="735" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-hf" edge="1" parent="1" source="healthy" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="to-open" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-fo" edge="1" parent="1" source="to-open" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#DC2626;labelBackgroundColor=#F8FAFC;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=12;fontColor=#DC2626;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="open" value="熔断">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-timeout" edge="1" parent="1" source="open" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;labelBackgroundColor=#F8FAFC;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=12;fontColor=#64748B;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="halfopen" value="超时 N 秒">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-hos" edge="1" parent="1" source="halfopen" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#4CA497;exitX=0.329;exitY=0.991;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="709" y="390" />
+              <mxPoint x="640" y="390" />
+            </Array>
+            <mxPoint x="710" y="340" as="sourcePoint" />
+            <mxPoint x="640.004482758621" y="410.0000000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-hof" edge="1" parent="1" source="halfopen" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#DC2626;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="to-open2" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="390" />
+              <mxPoint x="840" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

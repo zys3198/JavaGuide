@@ -1,0 +1,59 @@
+<mxfile host="Electron" agent="drawio-chart">
+  <diagram name="CC Switch Architecture" id="cc-switch-arch">
+    <mxGraphModel dx="967" dy="581" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="830" pageHeight="380" background="#F8FAFC" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=20;fontStyle=1;fontColor=#2D3748;" value="CC Switch 本地代理网关架构" vertex="1">
+          <mxGeometry height="35" width="300" x="260" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="bg-client" parent="1" style="swimlane;whiteSpace=wrap;fillColor=none;strokeColor=#005D7B;dashed=1;strokeWidth=2;fontColor=#2D3748;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;startSize=28;collapsible=0;swimlaneLine=0;" value="客户端" vertex="1">
+          <mxGeometry height="150" width="160" x="20" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="bg-gw" parent="1" style="swimlane;whiteSpace=wrap;fillColor=none;strokeColor=#005D7B;dashed=1;strokeWidth=2;fontColor=#2D3748;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=14;startSize=28;collapsible=0;swimlaneLine=0;" value="&#xa;CC Switch 网关 (127.0.0.1:15721)" vertex="1">
+          <mxGeometry height="295" width="200" x="220.5" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="bg-up" parent="1" style="swimlane;whiteSpace=wrap;fillColor=none;strokeColor=#005D7B;dashed=1;strokeWidth=2;fontColor=#2D3748;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;startSize=28;collapsible=0;swimlaneLine=0;" value="上游 Provider" vertex="1">
+          <mxGeometry height="295" width="340" x="460" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="n-cd" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#0891B2;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="Claude Desktop" vertex="1">
+          <mxGeometry height="50" width="130" x="35" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="n-cc" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#005D7B;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="CC Switch&#xa;网关核心" vertex="1">
+          <mxGeometry height="55" width="145" x="248" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="n-rt" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#7C3AED;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="Provider Router" vertex="1">
+          <mxGeometry height="50" width="130" x="255" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="n-ds" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#64748B;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="DeepSeek API" vertex="1">
+          <mxGeometry height="50" width="260" x="500" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="n-bk" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#E99151;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="备用 Provider" vertex="1">
+          <mxGeometry height="50" width="260" x="500" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="n-cd" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;labelBackgroundColor=#F8FAFC;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=12;fontColor=#64748B;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="n-cc" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="135" />
+              <mxPoint x="200" y="127" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4ot07LldZlJyfyf1gtVj-2" connectable="0" parent="e1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;color: rgb(100, 116, 139); font-family: system-ui, -apple-system, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, sans-serif; font-size: 12px; background-color: rgb(248, 250, 252);&quot;&gt;POST&amp;nbsp;&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.2876" as="geometry">
+            <mxPoint x="3" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="n-cc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n-rt" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="n-rt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;labelBackgroundColor=#F8FAFC;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=12;fontColor=#64748B;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="n-ds" value="模型映射&#xa;+ API Key 注入">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="n-rt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;dashed=1;strokeWidth=2;strokeColor=#94A3B8;labelBackgroundColor=#F8FAFC;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=12;fontColor=#64748B;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="n-bk" value="故障转移">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
