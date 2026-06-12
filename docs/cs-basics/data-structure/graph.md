@@ -164,4 +164,98 @@ head:
 
 ![深度优先搜索6](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/depth-first-search6.png)
 
+## 面试复盘重点
+
+图题先选存储方式，再选遍历方式。面试里最常见的 4 类图题是：连通块、最短步数、依赖关系和判环。
+
+| 存储方式 | 空间复杂度 | 判断两点是否相邻 | 遍历某点邻居 | 适合场景           |
+| -------- | ---------- | ---------------- | ------------ | ------------------ |
+| 邻接矩阵 | `O(V^2)`   | `O(1)`           | `O(V)`       | 稠密图、节点数较少 |
+| 邻接表   | `O(V + E)` | 取决于邻接表结构 | 和度数有关   | 稀疏图、算法题常用 |
+
+DFS/BFS 模板可以参考 [DFS 与 BFS 面试题总结](../algorithms/dfs-bfs.md)。这里再补几个面试回答点：
+
+- 邻接表下，DFS 和 BFS 的时间复杂度通常是 `O(V + E)`。
+- 无权图求最短步数，优先考虑 BFS。
+- 有向图依赖关系常用拓扑排序，典型题是课程表。
+- 无向图连通性和判环可以用 DFS/BFS，也可以用并查集。
+- 带权最短路径不是普通 BFS，常见算法有 Dijkstra、Bellman-Ford、Floyd，面试中按题目范围选择。
+
+## Java 代码模板
+
+算法题中最常用的是邻接表。节点编号通常是 `0` 到 `n - 1`，可以用 `List<Integer>[]` 表示。
+
+```java
+List<Integer>[] buildGraph(int n, int[][] edges) {
+    List<Integer>[] graph = new ArrayList[n];
+    for (int i = 0; i < n; i++) {
+        graph[i] = new ArrayList<>();
+    }
+    for (int[] edge : edges) {
+        int from = edge[0];
+        int to = edge[1];
+        graph[from].add(to);
+        // 无向图需要再加一条反向边：
+        // graph[to].add(from);
+    }
+    return graph;
+}
+```
+
+BFS 适合求无权图最短步数：
+
+```java
+int bfs(List<Integer>[] graph, int start, int target) {
+    boolean[] visited = new boolean[graph.length];
+    Queue<Integer> queue = new ArrayDeque<>();
+    queue.offer(start);
+    visited[start] = true;
+    int step = 0;
+    while (!queue.isEmpty()) {
+        int size = queue.size();
+        for (int i = 0; i < size; i++) {
+            int cur = queue.poll();
+            if (cur == target) {
+                return step;
+            }
+            for (int next : graph[cur]) {
+                if (!visited[next]) {
+                    visited[next] = true;
+                    queue.offer(next);
+                }
+            }
+        }
+        step++;
+    }
+    return -1;
+}
+```
+
+## 过程示意和边界样例
+
+以无权图最短路径为例，BFS 的层序扩散过程可以这样理解：
+
+```text
+第 0 层：start
+第 1 层：start 的所有未访问邻居
+第 2 层：第 1 层节点的所有未访问邻居
+...
+第一次遇到 target 时，当前层数就是最短步数
+```
+
+几个边界样例建议先过一遍：
+
+- `start == target`，答案应该是 `0`。
+- 图不连通，目标点不可达，答案应该是 `-1`。
+- 无向图建图时忘记加反向边，会把连通图误判成不连通。
+- 有环图如果不标记 `visited`，BFS/DFS 会重复访问甚至死循环。
+
+## 推荐练习题
+
+- [200. 岛屿数量](https://leetcode.cn/problems/number-of-islands/)
+- [695. 岛屿的最大面积](https://leetcode.cn/problems/max-area-of-island/)
+- [994. 腐烂的橘子](https://leetcode.cn/problems/rotting-oranges/)
+- [207. 课程表](https://leetcode.cn/problems/course-schedule/)
+- [547. 省份数量](https://leetcode.cn/problems/number-of-provinces/)
+
 <!-- @include: @article-footer.snippet.md -->

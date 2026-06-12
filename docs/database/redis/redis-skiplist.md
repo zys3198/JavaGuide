@@ -16,6 +16,8 @@ head:
 
 本文就以这道大厂常问的面试题为切入点，带大家详细了解一下跳表这个数据结构。
 
+如果你只是想先快速了解跳表的多级索引、查询复杂度和面试回答框架，可以先看 [跳表面试题总结](../../cs-basics/data-structure/skip-list.md)，再回到本文看 Redis ZSet 的源码实现。
+
 本文整体脉络如下图所示，笔者会从有序集合的基本使用到跳表的源码分析和实现，让你会对 Redis 的有序集合底层实现的跳表有着更深刻的理解和掌握。
 
 ![](https://oss.javaguide.cn/javaguide/database/redis/skiplist/202401222005468.png)
@@ -716,6 +718,10 @@ private Node < K, V > add(Node < K, V > node, K key, V val) {
 ## 小结
 
 本文通过大量篇幅介绍跳表的工作原理和实现，帮助读者更进一步的熟悉跳表这一数据结构的优劣，最后再结合各个数据结构操作的特点进行比对，从而帮助读者更好的理解这道面试题，建议读者实现理解跳表时，尽可能配合执笔模拟来了解跳表的增删改查详细过程。
+
+## 数据结构延伸阅读
+
+如果想从面试角度快速复盘跳表，可以看 [跳表面试题总结](../../cs-basics/data-structure/skip-list.md)。如果想对比 Redis ZSet 背后的其他结构，也可以顺手复习 [红黑树详解](../../cs-basics/data-structure/red-black-tree.md) 和 [哈希表面试题总结](../../cs-basics/data-structure/hash-table.md)。
 
 ## 参考
 

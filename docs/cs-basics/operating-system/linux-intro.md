@@ -23,7 +23,7 @@ head:
 - **Linux 本质是指 Linux 内核**：严格来讲，Linux 这个词本身只表示 Linux 内核，单独的 Linux 内核并不能成为一个可以正常工作的操作系统。所以，就有了各种 Linux 发行版。
 - **Linux 之父（林纳斯·本纳第克特·托瓦兹 Linus Benedict Torvalds）**：一个编程领域的传奇式人物，真大佬！我辈崇拜敬仰之楷模。他是 **Linux 内核** 的最早作者，随后发起了这个开源项目，担任 Linux 内核的首要架构师。他还发起了 Git 这个开源项目，并为主要的开发者。
 
-![Linux 之父](https://oss.javaguide.cn/github/javaguide/cs-basics/operating-system/linux/linux-father.png)
+![Linux 创始人 Linus Torvalds](https://oss.javaguide.cn/github/javaguide/cs-basics/operating-system/linux/linux-father.png)
 
 ### Linux 诞生
 
@@ -33,11 +33,11 @@ head:
 
 1991 年，Linus Torvalds 开源了 Linux 内核。Linux 以一只可爱的企鹅作为标志，象征着敢作敢为、热爱生活。
 
-![OPINION: Make the switch to a Linux operating system | Opinion ...](https://oss.javaguide.cn/github/javaguide/cs-basics/operating-system/linux/Linux-Logo.png)
+![Linux 操作系统 Logo](https://oss.javaguide.cn/github/javaguide/cs-basics/operating-system/linux/Linux-Logo.png)
 
 ### 常见的 Linux 发行版本
 
-![Linux 操作系统](https://oss.javaguide.cn/github/javaguide/cs-basics/operating-system/linux/linux.png)
+![Linux 操作系统桌面与命令行界面](https://oss.javaguide.cn/github/javaguide/cs-basics/operating-system/linux/linux.png)
 
 Linus Torvalds 开源的只是 Linux 内核，我们上面也提到了操作系统内核的作用。一些组织或厂商将 Linux 内核与各种软件和文档包装起来，并提供系统安装界面和系统配置、设定与管理工具，就构成了 Linux 的发行版本。
 
@@ -48,10 +48,15 @@ Linux 的发行版本可以大体分为两类：
 - **商业公司维护的发行版本**：比如 Red Hat 公司维护支持的 Red Hat Enterprise Linux (RHEL)。
 - **社区组织维护的发行版本**：比如基于 Red Hat Enterprise Linux（RHEL）的 CentOS、基于 Debian 的 Ubuntu。
 
-对于初学者学习 Linux，推荐选择 CentOS，原因如下：
+对于初学者学习 Linux，不建议再无条件选择 CentOS。CentOS Linux 8 已在 2021 年底停止维护，CentOS Linux 7 也已在 2024 年 6 月结束生命周期；现在的 CentOS Stream 是 RHEL 的上游持续交付分支，定位和过去“稳定的 RHEL 兼容重构版”不一样。
 
-- CentOS 免费且开放源代码。
-- CentOS 基于 RHEL，功能与 RHEL 高度一致，安全稳定、性能优秀。
+更稳妥的选择是：
+
+- 想学习企业服务器环境、RHEL 生态：优先选择 Rocky Linux 或 AlmaLinux。
+- 想快速上手、资料多、桌面和服务器都常见：选择 Ubuntu LTS。
+- 想要稳定、轻量、贴近社区发行版：选择 Debian。
+
+如果你的公司环境仍在使用 CentOS，可以按实际环境学习对应版本；但新装学习环境时，更推荐选择仍在维护的发行版。
 
 ## Linux 文件系统
 
@@ -69,7 +74,7 @@ inode 是 Linux/Unix 文件系统的基础。那 inode 到底是什么？有什�
 
 通过以下五点可以概括 inode 到底是什么：
 
-1. 硬盘以扇区（Sector）为最小物理存储单位，而操作系统和文件系统以块（Block）为单位进行读写，块由多个扇区组成。文件数据存储在这些块中。现代硬盘扇区通常为 4KB，与一些常见块大小相同，但操作系统也支持更大的块大小，以提升大文件读写性能。文件元信息（例如权限、大小、修改时间以及数据块位置）存储在 inode（索引节点）中。每个文件都有唯一的 inode。inode 本身不存储文件数据，而是存储指向数据块的指针，操作系统通过这些指针找到并读取文件数据。固态硬盘（SSD）虽然没有物理扇区，但使用逻辑块，其概念与传统硬盘的块类似。
+1. 硬盘以扇区（Sector）为最小物理存储单位，而操作系统和文件系统通常以块（Block）为单位进行读写，块由多个扇区组成。传统磁盘扇区常见大小是 512 字节，现代磁盘也常见 4 KB 物理扇区（例如 512e/4Kn 设备）；文件系统块大小也常见 4 KB，但两者不是一个概念。文件数据存储在这些块中，文件元信息（例如权限、大小、修改时间以及数据块位置）存储在 inode（索引节点）中。每个文件都有唯一的 inode。inode 本身不存储文件数据，而是存储指向数据块的指针，操作系统通过这些指针找到并读取文件数据。固态硬盘（SSD）虽然没有传统机械磁盘意义上的物理扇区，但仍然对外暴露逻辑块接口。
 2. inode 是一种固定大小的数据结构，其大小在文件系统创建时就确定了，并且在文件的生命周期内保持不变。
 3. inode 的访问速度非常快，因为系统可以直接通过 inode 号码定位到文件的元数据信息，无需遍历整个文件系统。
 4. inode 的数量是有限的，每个文件系统只能包含固定数量的 inode。这意味着当文件系统中的 inode 用完时，无法再创建新的文件或目录，即使磁盘上还有可用空间。因此，在创建文件系统时，需要根据文件和目录的预期数量来合理分配 inode 的数量。
@@ -82,7 +87,7 @@ inode 是 Linux/Unix 文件系统的基础。那 inode 到底是什么？有什�
 - **inode**：记录文件的属性信息，可以使用 `stat` 命令查看 inode 信息。
 - **block**：实际文件的内容，如果一个文件大于一个块时候，那么将占用多个 block，但是一个块只能存放一个文件。（因为数据是由 inode 指向的，如果有两个文件的数据存放在同一个块中，就会乱套了）
 
-![文件inode信息](./images/文件inode信息.png)
+![stat 命令查看文件 inode 信息](./images/文件inode信息.png)
 
 可以看出，Linux/Unix 操作系统使用 inode 区分不同的文件。这样做的好处是，即使文件名被修改或删除，文件的 inode 号码不会改变，从而可以避免一些因文件重命名、移动或删除导致的错误。同时，inode 也可以提供更高的文件系统性能，因为 inode 的访问速度非常快，可以直接通过 inode 号码定位到文件的元数据信息，无需遍历整个文件系统。
 
@@ -187,7 +192,7 @@ Linux 使用一种称为目录树的层次结构来组织文件和目录。目�
 - `ls`：显示目录中的文件和子目录的列表。例如：`ls /home`，显示 `/home` 目录下的文件和子目录列表。
 - `ll`：`ll` 是 `ls -l` 的别名，ll 命令可以看到该目录下的所有目录和文件的详细信息。
 - `mkdir [选项] 目录名`：创建新目录（增）。例如：`mkdir -m 755 my_directory`，创建一个名为 `my_directory` 的新目录，并将其权限设置为 755，其中所有者拥有读、写、执行权限，所属组和其他用户只有读、执行权限，无法修改目录内容（如创建或删除文件）。如果希望所有用户（包括所属组和其他用户）对目录都拥有读、写、执行权限，则应设置权限为 `777`，即：`mkdir -m 777 my_directory`。
-- `find [路径] [表达式]`：在指定目录及其子目录中搜索文件或目录（查），非常强大灵活。例如：① 列出当前目录及子目录下所有文件和文件夹：`find .`；② 在 `/home` 目录下查找以 `.txt` 结尾的文件名：`find /home -name "*.txt"`，忽略大小写：`find /home -i name "*.txt"`；③ 当前目录及子目录下查找所有以 `.txt` 和 `.pdf` 结尾的文件：`find . \( -name "*.txt" -o -name "*.pdf" \)` 或 `find . -name "*.txt" -o -name "*.pdf"`。
+- `find [路径] [表达式]`：在指定目录及其子目录中搜索文件或目录（查），非常强大灵活。例如：① 列出当前目录及子目录下所有文件和文件夹：`find .`；② 在 `/home` 目录下查找以 `.txt` 结尾的文件名：`find /home -name "*.txt"`，忽略大小写：`find /home -iname "*.txt"`；③ 当前目录及子目录下查找所有以 `.txt` 和 `.pdf` 结尾的文件：`find . \( -name "*.txt" -o -name "*.pdf" \)` 或 `find . -name "*.txt" -o -name "*.pdf"`。
 - `pwd`：显示当前工作目录的路径。
 - `rmdir [选项] 目录名`：删除空目录（删）。例如：`rmdir -p my_directory`，删除名为 `my_directory` 的空目录，并且会递归删除 `my_directory` 的空父目录，直到遇到非空目录或根目录。
 - `rm [选项] 文件或目录名`：删除文件/目录（删）。例如：`rm -r my_directory`，删除名为 `my_directory` 的目录，`-r`（recursive，递归）表示会递归删除指定目录及其所有子目录和文件。
@@ -243,11 +248,11 @@ Linux 中的打包文件一般是以 `.tar` 结尾的，压缩的命令一般是
 
 示例：在随意某个目录下 `ls -l`
 
-![](./images/Linux权限命令.png)
+![Linux 文件权限命令示例](./images/Linux权限命令.png)
 
 第一列的内容的信息解释如下：
 
-![](./images/Linux权限解读.png)
+![Linux 文件权限字段解读](./images/Linux权限解读.png)
 
 > 下面将详细讲解文件的类型、Linux 中权限以及文件有所有者、所在组、其它组具体是什么？
 
@@ -299,16 +304,21 @@ Linux 中的打包文件一般是以 `.tar` 结尾的，压缩的命令一般是
 
 **`chmod u=rwx,g=rw,o=r aaa.txt`** 或者 **`chmod 764 aaa.txt`**
 
-![](./images/修改文件权限.png)
+![chmod 修改 Linux 文件权限示例](./images/修改文件权限.png)
 
 **补充一个比较常用的东西：**
 
 假如我们装了一个 zookeeper，我们每次开机到要求其自动启动该怎么办？
 
-1. 新建一个脚本 zookeeper。
-2. 为新建的脚本 zookeeper 添加可执行权限，命令是：`chmod +x zookeeper`。
-3. 把 zookeeper 这个脚本添加到开机启动项里面，命令是：`chkconfig --add zookeeper`。
-4. 如果想看看是否添加成功，命令是：`chkconfig --list`。
+现在主流 Linux 发行版基本使用 systemd 管理服务，推荐做法是编写一个 `zookeeper.service` 单元文件，然后使用下面的命令设置开机自启：
+
+```bash
+sudo systemctl enable zookeeper
+sudo systemctl start zookeeper
+sudo systemctl status zookeeper
+```
+
+如果修改了 service 文件，需要先执行 `sudo systemctl daemon-reload` 让 systemd 重新加载配置。`chkconfig --add zookeeper`、`chkconfig --list` 属于 SysV init 时代的做法，只有在较老的发行版或兼容环境中才会用到。
 
 ### 用户管理
 
@@ -348,6 +358,7 @@ Linux 系统是一个多用户多任务的分时操作系统，任何一个要�
 - `sar [选项] [时间间隔] [重复次数]`：用于收集、报告和分析系统的性能统计信息，包括系统的 CPU 使用、内存使用、磁盘 I/O、网络活动等详细信息。它的特点是可以连续对系统取样，获得大量的取样数据。取样数据和分析的结果都可以存入文件，使用它时消耗的系统资源很小。
 - `ps [选项]`：用于查看系统中的进程信息，包括进程的 ID、状态、资源使用情况等。`ps -ef`/`ps -aux`：这两个命令都是查看当前系统正在运行进程，两者的区别是展示格式不同。如果想要查看特定的进程可以使用这样的格式：`ps aux|grep redis`（查看包括 redis 字符串的进程），也可使用 `pgrep redis -a`。
 - `systemctl [命令] [服务名称]`：用于管理系统的服务和单元，可以查看系统服务的状态、启动、停止、重启等。
+- `journalctl [选项]`：用于查看 systemd 日志，排查服务启动失败、系统错误非常常用。例如：`journalctl -u nginx -f` 实时查看 nginx 服务日志，`journalctl -xe` 查看最近的系统错误上下文。
 
 ### 网络通信
 
@@ -377,7 +388,7 @@ Linux 系统是一个多用户多任务的分时操作系统，任何一个要�
 - 用户级别环境变量：`~/.bashrc`、`~/.bash_profile`。
 - 系统级别环境变量：`/etc/bashrc`、`/etc/environment`、`/etc/profile`、`/etc/profile.d`。
 
-上述配置文件执行先后顺序为：`/etc/environment` --> `/etc/profile` --> `/etc/profile.d` --> `~/.bash_profile` --> `/etc/bashrc` --> `~/.bashrc`
+环境变量配置文件的加载顺序不是固定一条线，取决于当前 shell 是登录 shell、非登录交互 shell，还是非交互 shell。以 Bash 为例，登录 shell 通常会读取 `/etc/profile`，再读取用户目录下第一个存在且可读的 `~/.bash_profile`、`~/.bash_login` 或 `~/.profile`；交互式非登录 shell 通常读取 `~/.bashrc`。很多发行版会在 `~/.bash_profile` 中手动加载 `~/.bashrc`，所以你实际看到的加载链路还会受发行版默认配置影响。
 
 如果要修改系统级别环境变量文件，需要管理员具备对该文件的写入权限。
 

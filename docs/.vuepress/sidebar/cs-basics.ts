@@ -24,6 +24,7 @@ export const csBasics = [
       {
         text: "基础",
         icon: ICONS.STAR,
+        collapsible: true,
         children: [
           {
             text: "OSI 七层模型与 TCP/IP 四层模型详解",
@@ -38,6 +39,7 @@ export const csBasics = [
       {
         text: "应用层",
         icon: ICONS.CODE,
+        collapsible: true,
         children: [
           { text: "⭐️应用层常见协议总结", link: "application-layer-protocol" },
           { text: "⭐️HTTP vs HTTPS", link: "http-vs-https" },
@@ -54,6 +56,7 @@ export const csBasics = [
       {
         text: "传输层",
         icon: ICONS.NETWORK,
+        collapsible: true,
         children: [
           {
             text: "⭐️TCP 三次握手和四次挥手",
@@ -89,6 +92,7 @@ export const csBasics = [
       {
         text: "网络层",
         icon: ICONS.NETWORK,
+        collapsible: true,
         children: [
           { text: "ARP 协议详解", link: "arp" },
           { text: "NAT 协议详解", link: "nat" },
@@ -97,6 +101,7 @@ export const csBasics = [
       {
         text: "安全",
         icon: ICONS.SECURITY,
+        collapsible: true,
         children: [
           { text: "网络攻击常见手段总结", link: "network-attack-means" },
         ],
@@ -108,12 +113,45 @@ export const csBasics = [
     prefix: "operating-system/",
     icon: ICONS.OS,
     children: [
-      "operating-system-basic-questions-01",
-      "operating-system-basic-questions-02",
+      {
+        text: "面试题",
+        icon: ICONS.INTERVIEW,
+        children: [
+          {
+            text: "⭐️操作系统常见面试题总结（上）",
+            link: "operating-system-basic-questions-01",
+          },
+          {
+            text: "⭐️操作系统常见面试题总结（下）",
+            link: "operating-system-basic-questions-02",
+          },
+        ],
+      },
+      {
+        text: "面试必考",
+        icon: ICONS.STAR,
+        children: [
+          { text: "⭐️虚拟内存详解", link: "virtual-memory" },
+          { text: "⭐️I/O 多路复用详解", link: "io-multiplexing" },
+          { text: "⭐️零拷贝详解", link: "zero-copy" },
+        ],
+      },
+      {
+        text: "进程与线程",
+        icon: ICONS.STAR,
+        collapsible: true,
+        children: [
+          { text: "⭐️进程与线程详解", link: "process-and-thread" },
+          { text: "进程间通信（IPC）详解", link: "ipc" },
+        ],
+      },
       {
         text: "Linux",
         icon: ICONS.LINUX,
-        children: ["linux-intro", "shell-intro"],
+        children: [
+          { text: "Linux 基础知识总结", link: "linux-intro" },
+          { text: "Shell 编程基础知识总结", link: "shell-intro" },
+        ],
       },
     ],
   },
@@ -124,11 +162,16 @@ export const csBasics = [
     collapsible: true,
     children: [
       { text: "线性数据结构", link: "linear-data-structure" },
+      { text: "哈希表", link: "hash-table" },
       { text: "树结构", link: "tree" },
       { text: "图", link: "graph" },
       { text: "堆", link: "heap" },
+      { text: "Trie 前缀树", link: "trie" },
+      { text: "并查集", link: "union-find" },
+      { text: "跳表", link: "skip-list" },
       { text: "红黑树", link: "red-black-tree" },
       { text: "布隆过滤器", link: "bloom-filter" },
+      { text: "LRU 缓存", link: "lru-cache" },
     ],
   },
   {
@@ -137,12 +180,26 @@ export const csBasics = [
     icon: ICONS.ALGORITHM,
     collapsible: true,
     children: [
-      "classical-algorithm-problems-recommendations",
-      "common-data-structures-leetcode-recommendations",
-      "string-algorithm-problems",
-      "linkedlist-algorithm-problems",
-      "the-sword-refers-to-offer",
-      "10-classical-sorting-algorithms",
+      { text: "复杂度分析", link: "complexity-analysis" },
+      { text: "二分查找", link: "binary-search" },
+      { text: "双指针与滑动窗口", link: "two-pointers-and-sliding-window" },
+      { text: "DFS 与 BFS", link: "dfs-bfs" },
+      { text: "回溯算法", link: "backtracking" },
+      { text: "动态规划", link: "dynamic-programming" },
+      { text: "贪心算法", link: "greedy" },
+      { text: "Top K 问题", link: "top-k" },
+      {
+        text: "经典算法思想",
+        link: "classical-algorithm-problems-recommendations",
+      },
+      {
+        text: "数据结构 LeetCode",
+        link: "common-data-structures-leetcode-recommendations",
+      },
+      { text: "字符串算法题", link: "string-algorithm-problems" },
+      { text: "链表算法题", link: "linkedlist-algorithm-problems" },
+      { text: "剑指 Offer", link: "the-sword-refers-to-offer" },
+      { text: "经典排序算法", link: "10-classical-sorting-algorithms" },
     ],
   },
 ];

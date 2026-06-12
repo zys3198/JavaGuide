@@ -104,7 +104,7 @@ head:
 插入删除：O(1) //顶端插入和删除元素
 ```
 
-![栈](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/%E6%A0%88.png)
+![栈的后进先出结构示意图](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/stack.png)
 
 ### 3.2. 栈的常见应用场景
 
@@ -114,7 +114,7 @@ head:
 
 我们只需要使用两个栈（Stack1 和 Stack2）就能实现这个功能。比如你按顺序查看了 1,2,3,4 这四个页面，我们依次把 1,2,3,4 这四个页面压入 Stack1 中。当你想回头看 2 这个页面的时候，你点击回退按钮，我们依次把 4,3 这两个页面从 Stack1 弹出，然后压入 Stack2 中。假如你又想回到页面 3，你点击前进按钮，我们将 3 页面从 Stack2 弹出，然后压入到 Stack1 中。示例图如下：
 
-![栈实现浏览器倒退和前进](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/%E6%A0%88%E5%AE%9E%E7%8E%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E5%80%92%E9%80%80%E5%92%8C%E5%89%8D%E8%BF%9B.png)
+![使用两个栈实现浏览器后退和前进功能](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/stack-browser-back-forward.png)
 
 #### 3.2.2. 检查符号是否成对出现
 
@@ -324,7 +324,7 @@ myStack.pop();//报错：java.lang.IllegalArgumentException: Stack is empty.
 
 关于堆的具体实现可以看 [堆](https://javaguide.cn/cs-basics/data-structure/heap.html) 这一节。
 
-总而言之，不论我们进行什么操作，优先队列都能按照**某种排序方式**进行一系列堆的相关操作，从而保证整个集合的**有序性**。
+不论进行什么操作，优先队列都能按照**某种排序方式**进行一系列堆的相关操作，从而保证整个集合的**有序性**。
 
 虽然优先队列的底层并非严格的线性结构，但是在我们使用的过程中，我们是感知不到**堆**的，从使用者的眼中优先队列可以被认为是一种线性的数据结构：一种会自动排序的线性队列。
 
@@ -340,5 +340,31 @@ myStack.pop();//报错：java.lang.IllegalArgumentException: Stack is empty.
 - 现实生活中的派对，播放器上的播放列表；
 - 消息队列
 - 等等……
+
+## 面试复盘重点
+
+线性结构是算法题和 Java 集合的基础，面试里常把数组、链表、栈、队列放在一起对比。
+
+| 结构 | 查询          | 插入/删除         | 典型 Java 类型         | 高频题型                     |
+| ---- | ------------- | ----------------- | ---------------------- | ---------------------------- |
+| 数组 | 按下标 `O(1)` | 中间位置 `O(n)`   | `ArrayList` 底层数组   | 二分、双指针、前缀和         |
+| 链表 | `O(n)`        | 已知节点时 `O(1)` | `LinkedList`           | 反转链表、快慢指针、合并链表 |
+| 栈   | 栈顶 `O(1)`   | 栈顶 `O(1)`       | `ArrayDeque`           | 括号匹配、单调栈、DFS        |
+| 队列 | 队头 `O(1)`   | 入队/出队 `O(1)`  | `ArrayDeque`、阻塞队列 | BFS、生产者消费者、任务排队  |
+
+几个回答面试题时很有用的点：
+
+- 数组随机访问快，是因为内存连续，可以通过基地址和下标直接计算地址。
+- 链表插入删除快有前提：已经拿到要操作位置的节点；如果还要先查找，整体仍然是 `O(n)`。
+- Java 中不推荐继续使用 `Stack`，更常见的选择是 `Deque`，比如 `ArrayDeque`。
+- 队列在工程里不只用于算法 BFS，也用于线程池任务队列、消息队列、限流削峰等场景。
+- 循环队列的关键是区分队空和队满，常见做法是浪费一个位置或单独维护元素数量。
+
+## 推荐练习题
+
+- 数组：[704. 二分查找](https://leetcode.cn/problems/binary-search/)、[26. 删除有序数组中的重复项](https://leetcode.cn/problems/remove-duplicates-from-sorted-array/)
+- 链表：[206. 反转链表](https://leetcode.cn/problems/reverse-linked-list/)、[19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/)
+- 栈：[20. 有效的括号](https://leetcode.cn/problems/valid-parentheses/)、[739. 每日温度](https://leetcode.cn/problems/daily-temperatures/)
+- 队列：[102. 二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal/)、[239. 滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum/)
 
 <!-- @include: @article-footer.snippet.md -->

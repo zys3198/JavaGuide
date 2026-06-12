@@ -10,8 +10,6 @@ head:
       content: 排序算法,快速排序,归并排序,堆排序,冒泡排序,选择排序,插入排序,希尔排序,桶排序,计数排序,基数排序,时间复杂度,空间复杂度,稳定性
 ---
 
-> 本文转自：<http://www.guoyaohua.com/sorting.html>，JavaGuide 对其做了补充完善。
-
 <!-- markdownlint-disable MD024 -->
 
 ## 引言
@@ -58,9 +56,9 @@ head:
 
 比较类排序的优势是，适用于各种规模的数据，也不在乎数据的分布，都能进行排序。可以说，比较排序适用于一切需要排序的情况。
 
-而**计数排序**、**基数排序**、**桶排序**则属于**非比较类排序算法**。非比较排序不通过比较来决定元素间的相对次序，而是通过确定每个元素之前，应该有多少个元素来排序。由于它可以突破基于比较排序的时间下界，以线性时间运行，因此称为线性时间非比较类排序。 非比较排序只要确定每个元素之前的已有的元素个数即可，所有一次遍历即可解决。算法时间复杂度 $O(n)$。
+而**计数排序**、**基数排序**、**桶排序**则属于**非比较类排序算法**。非比较排序不通过比较来决定元素间的相对次序，而是通过确定每个元素之前，应该有多少个元素来排序。由于它可以突破基于比较排序的时间下界，以线性时间运行，因此称为线性时间非比较类排序。非比较排序只要确定每个元素之前已有的元素个数即可，所以一次遍历即可解决。算法时间复杂度 $O(n)$。
 
-非比较排序时间复杂度底，但由于非比较排序需要占用空间来确定唯一位置。所以对数据规模和数据分布有一定的要求。
+非比较排序时间复杂度低，但由于非比较排序需要占用空间来确定唯一位置。所以对数据规模和数据分布有一定的要求。
 
 ## 冒泡排序 (Bubble Sort)
 
@@ -128,7 +126,7 @@ public static int[] bubbleSort(int[] arr) {
 
 ### 图解算法
 
-![Selection Sort](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/selection_sort.gif)
+![选择排序每轮选择最小元素放到已排序区末尾](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/selection_sort.gif)
 
 ### 代码实现
 
@@ -182,7 +180,7 @@ public static int[] selectionSort(int[] arr) {
 
 ### 图解算法
 
-![insertion_sort](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/insertion_sort.gif)
+![插入排序过程演示](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/insertion_sort.gif)
 
 ### 代码实现
 
@@ -231,7 +229,7 @@ public static int[] insertionSort(int[] arr) {
 
 ### 图解算法
 
-![shell_sort](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/shell_sort.png)
+![希尔排序按增量分组并插入排序的过程](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/shell_sort.png)
 
 ### 代码实现
 
@@ -288,7 +286,7 @@ public static int[] shellSort(int[] arr) {
 
 ### 图解算法
 
-![MergeSort](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/merge_sort.gif)
+![归并排序递归拆分数组并合并有序子数组](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/merge_sort.gif)
 
 ### 代码实现
 
@@ -373,7 +371,7 @@ public static int[] merge(int[] arr_1, int[] arr_2) {
 
 ### 图解算法
 
-![RandomQuickSort](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/random_quick_sort.gif)
+![随机快速排序选择基准并递归划分子序列](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/random_quick_sort.gif)
 
 ### 代码实现
 
@@ -453,7 +451,7 @@ class Solution {
 
 ### 图解算法
 
-![HeapSort](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/heap_sort.gif)
+![堆排序构建大顶堆并依次取出堆顶元素](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/heap_sort.gif)
 
 ### 代码实现
 
@@ -547,7 +545,7 @@ public static int[] heapSort(int[] arr) {
 
 ### 图解算法
 
-![CountingSort](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/counting_sort.gif)
+![计数排序通过统计元素出现次数确定有序位置](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/counting_sort.gif)
 
 ### 代码实现
 
@@ -628,7 +626,7 @@ public static int[] countingSort(int[] arr) {
 
 ### 图解算法
 
-![BucketSort](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/bucket_sort.gif)
+![桶排序将数据分配到多个桶后分别排序再合并](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/bucket_sort.gif)
 
 ### 代码实现
 
@@ -709,7 +707,7 @@ public static List<Integer> bucketSort(List<Integer> arr, int bucket_size) {
 
 ### 图解算法
 
-![RadixSort](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/radix_sort.gif)
+![基数排序按数字位从低到高依次排序并收集](https://oss.javaguide.cn/github/javaguide/cs-basics/sorting-algorithms/radix_sort.gif)
 
 ### 代码实现
 
@@ -771,8 +769,96 @@ public static int[] radixSort(int[] arr) {
 
 ## 参考文章
 
-- <https://www.cnblogs.com/guoyaohua/p/8600214.html>
+- [排序算法总结（本文主要参考来源）](https://www.cnblogs.com/guoyaohua/p/8600214.html)
 - <https://en.wikipedia.org/wiki/Sorting_algorithm>
 - <https://sort.hust.cc/>
+
+## 面试复盘重点
+
+排序算法面试一般不会要求你把 10 种排序全部手写，但复杂度、稳定性、原地排序和适用场景要能说清。
+
+| 排序算法 | 平均时间复杂度 | 最坏时间复杂度 | 空间复杂度 | 稳定性         | 是否原地 |
+| -------- | -------------- | -------------- | ---------- | -------------- | -------- |
+| 冒泡排序 | `O(n^2)`       | `O(n^2)`       | `O(1)`     | 稳定           | 是       |
+| 选择排序 | `O(n^2)`       | `O(n^2)`       | `O(1)`     | 不稳定         | 是       |
+| 插入排序 | `O(n^2)`       | `O(n^2)`       | `O(1)`     | 稳定           | 是       |
+| 归并排序 | `O(nlogn)`     | `O(nlogn)`     | `O(n)`     | 稳定           | 否       |
+| 快速排序 | `O(nlogn)`     | `O(n^2)`       | `O(logn)`  | 不稳定         | 是       |
+| 堆排序   | `O(nlogn)`     | `O(nlogn)`     | `O(1)`     | 不稳定         | 是       |
+| 计数排序 | `O(n+k)`       | `O(n+k)`       | `O(n+k)`   | 稳定           | 否       |
+| 桶排序   | 和数据分布有关 | `O(n^2)`       | `O(n+k)`   | 取决于桶内排序 | 否       |
+| 基数排序 | `O(nk)`        | `O(nk)`        | `O(n+k)`   | 稳定           | 否       |
+
+几个高频追问：
+
+- 快排为什么最坏是 `O(n^2)`？如何降低退化概率？可以随机选 pivot 或三数取中。
+- 归并排序为什么稳定？因为合并时相等元素可以优先取左侧元素。
+- 堆排序为什么不稳定？因为堆调整和交换可能打乱相等元素原有顺序。
+- 插入排序什么时候表现好？数组基本有序且规模不大时。
+- 计数排序、桶排序、基数排序为什么不是通用排序？它们依赖数据范围、分布或位数。
+
+## Java 代码模板
+
+排序面试最常手写的是快速排序和归并排序。快速排序要特别注意分区边界，下面是一个常见写法：
+
+```java
+void quickSort(int[] nums, int left, int right) {
+    if (left >= right) {
+        return;
+    }
+    int pivotIndex = partition(nums, left, right);
+    quickSort(nums, left, pivotIndex - 1);
+    quickSort(nums, pivotIndex + 1, right);
+}
+
+int partition(int[] nums, int left, int right) {
+    int pivot = nums[right];
+    int less = left;
+    for (int i = left; i < right; i++) {
+        if (nums[i] <= pivot) {
+            swap(nums, less, i);
+            less++;
+        }
+    }
+    swap(nums, less, right);
+    return less;
+}
+
+void swap(int[] nums, int i, int j) {
+    int temp = nums[i];
+    nums[i] = nums[j];
+    nums[j] = temp;
+}
+```
+
+如果担心有序数组导致快排退化，可以在分区前随机选择 pivot，并把它交换到 `right` 位置。
+
+```java
+int randomIndex = left + new Random().nextInt(right - left + 1);
+swap(nums, randomIndex, right);
+```
+
+## 过程示意和边界样例
+
+快速排序的一次分区可以这样理解：
+
+```text
+原数组区间：[left ... right]
+pivot：选择 nums[right]
+less：指向“小于等于 pivot 区域”的下一个位置
+i：从 left 扫到 right - 1
+
+扫描结束后：
+[left ... less - 1] <= pivot
+[less ... right - 1] > pivot
+把 pivot 换到 less，pivot 左右两边分别递归
+```
+
+几个边界样例建议手写前先过一遍：
+
+- 空数组或只有一个元素：直接返回。
+- 已经有序或逆序：固定选择首尾元素做 pivot 容易退化。
+- 大量重复元素：普通二路分区可能不够理想，可以了解三路快排。
+- 面试官问稳定性时，不要说快排稳定；普通快排交换元素会打乱相等元素顺序。
 
 <!-- @include: @article-footer.snippet.md -->

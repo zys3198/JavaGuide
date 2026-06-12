@@ -123,6 +123,8 @@ AVL 树采用了旋转操作来保持平衡。主要有四种旋转操作：LL �
 
 **红黑树的应用还是比较广泛的，TreeMap、TreeSet 以及 JDK1.8 的 HashMap 底层都用到了红黑树。对于数据在内存中的这种情况来说，红黑树的表现是非常优异的。**
 
+关于二叉搜索树、AVL 树、红黑树、B 树和 B+ 树的基础对比，可以先看 [树结构详解](../../cs-basics/data-structure/tree.md) 和 [红黑树详解](../../cs-basics/data-structure/red-black-tree.md)。
+
 ### B 树& B+ 树
 
 B 树也称 B- 树，全称为 **多路平衡查找树**，B+ 树是 B 树的一种变体。B 树和 B+ 树中的 B 是 `Balanced`（平衡）的意思。
@@ -137,6 +139,8 @@ B 树也称 B- 树，全称为 **多路平衡查找树**，B+ 树是 B 树的一
 - 在 B 树中进行范围查询时，首先找到要查找的下限，然后对 B 树进行中序遍历，直到找到查找的上限；而 B+ 树的范围查询，只需要对链表进行遍历即可。
 
 综上，B+ 树与 B 树相比，具备更少的 IO 次数、更稳定的查询效率和更适于范围查询这些优势。
+
+如果只想从数据结构角度快速复盘 B 树和 B+ 树，可以回到 [树结构详解](../../cs-basics/data-structure/tree.md) 的面试复盘部分。
 
 在 MySQL 中，MyISAM 引擎和 InnoDB 引擎都是使用 B+Tree 作为索引结构，但是，两者的实现方式不太一样。（下面的内容整理自《Java 工程师修炼之道》）
 
@@ -565,5 +569,12 @@ mysql> EXPLAIN SELECT `score`,`name` FROM `cus_order` ORDER BY `score` DESC;
 | Extra         | 附加信息                                     |
 
 篇幅问题，我这里只是简单介绍了一下 MySQL 执行计划，详细介绍请看：[MySQL 执行计划分析](./mysql-query-execution-plan.md)这篇文章。
+
+## 数据结构延伸阅读
+
+理解 MySQL 索引时，建议回到树结构本身看一遍：
+
+- [树结构详解](../../cs-basics/data-structure/tree.md)：对比二叉搜索树、AVL、红黑树、B 树和 B+ 树。
+- [红黑树详解](../../cs-basics/data-structure/red-black-tree.md)：理解内存中自平衡搜索树的取舍，再对比 B+ 树为什么更适合磁盘索引。
 
 <!-- @include: @article-footer.snippet.md -->

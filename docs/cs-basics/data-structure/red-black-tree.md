@@ -63,38 +63,53 @@ public class Node {
 
 ### 1. 左倾染色
 
-![幻灯片1](./pictures/红黑树/红黑树1.png)
+![红黑树左倾染色示意图](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/red-black-tree-1.png)
 
 - 染色时根据当前节点的爷爷节点，找到当前节点的叔叔节点。
 - 再把父节点染黑、叔叔节点染黑，爷爷节点染红。但爷爷节点染红是临时的，当平衡树高操作后会把根节点染黑。
 
 ### 2. 右倾染色
 
-![幻灯片2](./pictures/红黑树/红黑树2.png)
+![红黑树右倾染色示意图](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/red-black-tree-2.png)
 
 ### 3. 左旋调衡
 
 #### 3.1 一次左旋
 
-![幻灯片3](./pictures/红黑树/红黑树3.png)
+![红黑树一次左旋调衡示意图](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/red-black-tree-3.png)
 
 #### 3.2 右旋 + 左旋
 
-![幻灯片4](./pictures/红黑树/红黑树4.png)
+![红黑树右旋加左旋调衡示意图](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/red-black-tree-4.png)
 
 ### 4. 右旋调衡
 
 #### 4.1 一次右旋
 
-![幻灯片5](./pictures/红黑树/红黑树5.png)
+![红黑树一次右旋调衡示意图](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/red-black-tree-5.png)
 
 #### 4.2 左旋 + 右旋
 
-![幻灯片6](./pictures/红黑树/红黑树6.png)
+![红黑树左旋加右旋调衡示意图](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/red-black-tree-6.png)
 
-## 文章推荐
+## 面试复盘重点
 
-- [《红黑树深入剖析及 Java 实现》 - 美团点评技术团队](https://zhuanlan.zhihu.com/p/24367771)
-- [漫画：什么是红黑树？ - 程序员小灰](https://juejin.im/post/5a27c6946fb9a04509096248#comment)（也介绍到了二叉查找树，非常推荐）
+红黑树面试一般不会要求完整手写插入删除修复，更常见的是让你说清性质、为什么近似平衡、和 AVL 树有什么区别、Java 里哪里用到了。
+
+| 对比点   | AVL 树             | 红黑树                               |
+| -------- | ------------------ | ------------------------------------ |
+| 平衡要求 | 更严格             | 相对宽松                             |
+| 查询性能 | 更稳定             | 也能保持 `O(logn)`                   |
+| 插入删除 | 旋转调整可能更多   | 调整次数通常更少                     |
+| 常见应用 | 读多写少的搜索结构 | `TreeMap`、`TreeSet`、`HashMap` 树化 |
+
+面试回答可以按这个顺序组织：
+
+1. 普通二叉搜索树在有序插入时会退化成链表。
+2. 红黑树通过颜色规则限制树高，保证查询、插入、删除仍然是 `O(logn)`。
+3. 它不是完全平衡，而是近似平衡，所以插入删除时调整成本比 AVL 树更低。
+4. Java 中 `TreeMap`、`TreeSet` 基于红黑树，JDK 8 后 `HashMap` 链表过长时也会树化为红黑树。
+
+`HashMap` 树化还要满足容量条件，并不是链表长度到阈值就一定树化。这个细节在 Java 集合面试里经常被追问。
 
 <!-- @include: @article-footer.snippet.md -->
