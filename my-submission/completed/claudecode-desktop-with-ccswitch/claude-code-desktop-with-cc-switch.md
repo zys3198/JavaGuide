@@ -157,28 +157,28 @@ CC Switch 正是利用了这一点。它写入的 3P profile 携带着必要信�
 
 但如果 Provider 只提供 OpenAI Chat Completions API（比如很多国内的中转站），CC Switch 就需要做完整的协议转换。下面是 Anthropic Messages API 和 OpenAI Chat Completions API 之间的主要映射关系：
 
-| Anthropic Messages API | OpenAI Chat Completions API |
-|------------------------|---------------------------|
-| `model` (string) | `model` (string) |
+| Anthropic Messages API                | OpenAI Chat Completions API           |
+| ------------------------------------- | ------------------------------------- |
+| `model` (string)                      | `model` (string)                      |
 | `messages[].role: "user"/"assistant"` | `messages[].role: "user"/"assistant"` |
-| `system` (string/array) | `messages[].role: "system"` |
-| `max_tokens` (required) | `max_tokens` (optional) |
-| `stop_sequences` | `stop` |
-| `temperature` | `temperature` |
-| `top_p` / `top_k` | `top_p` |
-| `tools[]` (自定义 schema) | `tools[]` (JSON Schema) |
-| `thinking` (extended thinking) | `reasoning_effort` (OpenAI o-series) |
+| `system` (string/array)               | `messages[].role: "system"`           |
+| `max_tokens` (required)               | `max_tokens` (optional)               |
+| `stop_sequences`                      | `stop`                                |
+| `temperature`                         | `temperature`                         |
+| `top_p` / `top_k`                     | `top_p`                               |
+| `tools[]` (自定义 schema)             | `tools[]` (JSON Schema)               |
+| `thinking` (extended thinking)        | `reasoning_effort` (OpenAI o-series)  |
 
 还有个重点：Thinking 功能的转换。
 
 Anthropic 的 extended thinking 允许你指定 `budget_tokens`（思考预算），而 OpenAI 推理模型会使用 `reasoning_effort` / `reasoning.effort` 这类枚举值（不同接口和模型支持范围会有差异，例如 `low` / `medium` / `high` / `xhigh`）。CC Switch 的转换逻辑可以按预算区间映射到不同 effort：
 
-| Anthropic Thinking 配置 | OpenAI reasoning_effort |
-|------------------------|------------------------|
-| `thinking.type: "adaptive"` | `xhigh` |
-| `thinking.budget_tokens` < 4000 | `low` |
-| `thinking.budget_tokens` 4000–15999 | `medium` |
-| `thinking.budget_tokens` ≥ 16000 | `high` |
+| Anthropic Thinking 配置             | OpenAI reasoning_effort |
+| ----------------------------------- | ----------------------- |
+| `thinking.type: "adaptive"`         | `xhigh`                 |
+| `thinking.budget_tokens` < 4000     | `low`                   |
+| `thinking.budget_tokens` 4000–15999 | `medium`                |
+| `thinking.budget_tokens` ≥ 16000    | `high`                  |
 
 响应时也是类似的反向映射，从 OpenAI 响应中提取 thinking token 或 reasoning 信息，还原成 Claude Desktop 能处理的格式。做对了用户无感，做错了就可能丢信息。CC Switch 还内置了 **Rectifier（修复器）** 来纠正上游不兼容的参数，比如某些 Provider 会在 thinking 响应中返回无效的 `signature` 字段，直接去掉避免错误。
 
@@ -192,11 +192,11 @@ CC Switch 支持为一个应用配多个 Provider，并且有自动故障转移�
 
 **断路器（Circuit Breaker）** 负责判断什么时候该跳过某个 Provider。每个 Provider 独立维护一个断路器实例，有三个状态：
 
-| 状态 | 含义 | 行为 |
-|------|------|------|
-| Healthy | 正常 | 请求正常通过 |
-| Degraded | 部分失败 | 仍可用，但降低优先级 |
-| Open（熔断） | 连续失败超过阈值 | 跳过，不尝试 |
+| 状态         | 含义             | 行为                 |
+| ------------ | ---------------- | -------------------- |
+| Healthy      | 正常             | 请求正常通过         |
+| Degraded     | 部分失败         | 仍可用，但降低优先级 |
+| Open（熔断） | 连续失败超过阈值 | 跳过，不尝试         |
 
 断路器会配置一个触发阈值（默认连续失败 N 次后熔断）。一旦熔断，Router 就不再给这个 Provider 分配请求，直到手动恢复或超时自动重试。
 
