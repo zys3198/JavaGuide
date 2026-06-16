@@ -320,7 +320,7 @@ DNS 通常使用 UDP，默认端口是 53。之所以优先使用 UDP，是因�
 - RFC 8446：TLS 1.3
 - RFC 9000：QUIC
 - RFC 3550：RTP: A Transport Protocol for Real-Time Applications
-- RFC 4571：Framing Real-time Transport Protocol (RTP) and RTP Control Protocol (RTCP) Packets over Connection-Oriented Transport
+- RFC 4571：Framing Real-time Transport Protocol（RTP） and RTP Control Protocol（RTCP） Packets over Connection-Oriented Transport
 - RFC 6891：Extension Mechanisms for DNS (EDNS(0))
 
 <!-- @include: @article-footer.snippet.md -->

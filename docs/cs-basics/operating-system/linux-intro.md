@@ -45,7 +45,7 @@ Linus Torvalds 开源的只是 Linux 内核，我们上面也提到了操作系�
 
 Linux 的发行版本可以大体分为两类：
 
-- **商业公司维护的发行版本**：比如 Red Hat 公司维护支持的 Red Hat Enterprise Linux (RHEL)。
+- **商业公司维护的发行版本**：比如 Red Hat 公司维护支持的 Red Hat Enterprise Linux（RHEL）。
 - **社区组织维护的发行版本**：比如基于 Red Hat Enterprise Linux（RHEL）的 CentOS、基于 Debian 的 Ubuntu。
 
 对于初学者学习 Linux，不建议再无条件选择 CentOS。CentOS Linux 8 已在 2021 年底停止维护，CentOS Linux 7 也已在 2024 年 6 月结束生命周期；现在的 CentOS Stream 是 RHEL 的上游持续交付分支，定位和过去“稳定的 RHEL 兼容重构版”不一样。
@@ -171,7 +171,7 @@ Linux 使用一种称为目录树的层次结构来组织文件和目录。目�
 
 下面只是给出了一些比较常用的命令。
 
-推荐一个 Linux 命令快查网站，非常不错，大家如果遗忘某些命令或者对某些命令不理解都可以在这里得到解决。Linux 命令在线速查手册：<https://wangchujiang.com/linux-command/> 。
+推荐一个 Linux 命令快查网站，非常不错，大家如果遗忘某些命令或者对某些命令不理解都可以在这里得到解决。Linux 命令在线速查手册：<https://wangchujiang.com/linux-command/>。
 
 ![Linux 命令快查](https://oss.javaguide.cn/github/javaguide/cs-basics/operating-system/linux/linux-command-search.png)
 

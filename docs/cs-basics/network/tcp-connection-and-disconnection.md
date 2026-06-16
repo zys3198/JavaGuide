@@ -1,6 +1,6 @@
 ---
 title: TCP 三次握手和四次挥手（传输层）
-description: 一文讲清 TCP 三次握手与四次挥手：SEQ/ACK/SYN/FIN 如何同步，TIME_WAIT 与 2MSL 的原因，半连接队列(SYN Queue)与全连接队列(Accept Queue)的工作机制，以及 backlog/somaxconn/syncookies 在高并发与 SYN Flood 下的影响。
+description: 一文讲清 TCP 三次握手与四次挥手：SEQ/ACK/SYN/FIN 如何同步，TIME_WAIT 与 2MSL 的原因，半连接队列（SYN Queue）与全连接队列（Accept Queue）的工作机制，以及 backlog/somaxconn/syncookies 在高并发与 SYN Flood 下的影响。
 category: 计算机基础
 tag:
   - 计算机网络
@@ -336,7 +336,7 @@ TCP 四次挥手的核心，是全双工连接的两个发送方向要分别关�
 - 《图解 HTTP》
 - TCP and UDP Tutorial：<https://www.9tut.com/tcp-and-udp-tutorial>
 - 从一次线上问题说起，详解 TCP 半连接队列、全连接队列：<https://mp.weixin.qq.com/s/YpSlU1yaowTs-pF6R43hMw>
-- RFC 9293: Transmission Control Protocol (TCP)：<https://www.rfc-editor.org/rfc/rfc9293>
+- RFC 9293: Transmission Control Protocol（TCP）：<https://www.rfc-editor.org/rfc/rfc9293>
 - RFC 1122: Requirements for Internet Hosts - Communication Layers：<https://www.rfc-editor.org/rfc/rfc1122>
 - RFC 1337: TIME-WAIT Assassination Hazards in TCP：<https://www.rfc-editor.org/rfc/rfc1337>
 - tcp(7) - Linux manual page：<https://www.man7.org/linux/man-pages/man7/tcp.7.html>

@@ -1,5 +1,5 @@
 ---
-title: 计算机网络常见面试题总结(上)
+title: 计算机网络常见面试题总结（上）
 description: 最新计算机网络高频面试题总结（上）：TCP/IP四层模型、HTTP全版本对比、TCP三次握手、DNS解析、WebSocket/SSE实时推送等，附图解+⭐️重点标注，一文搞定应用层&传输层&网络层核心考点，快速备战后端面试！
 category: 计算机基础
 tag:
@@ -34,7 +34,7 @@ head:
 
 ![osi七层模型2](https://oss.javaguide.cn/github/javaguide/osi七层模型2.png)
 
-#### ⭐️TCP/IP 四层模型是什么？每一层的作用是什么？
+#### ⭐️ TCP/IP 四层模型是什么？每一层的作用是什么？
 
 **TCP/IP 四层模型** 是目前被广泛采用的一种模型，我们可以将 TCP/IP 模型看作是 OSI 七层模型的精简版本，由以下 4 层组成：
 
@@ -71,7 +71,7 @@ head:
 
 ### 常见网络协议
 
-#### ⭐️应用层有哪些常见的协议？
+#### ⭐️ 应用层有哪些常见的协议？
 
 ![应用层常见协议](https://oss.javaguide.cn/github/javaguide/cs-basics/network/application-layer-protocol.png)
 
@@ -90,7 +90,7 @@ head:
 
 ![传输层常见协议](https://oss.javaguide.cn/github/javaguide/cs-basics/network/transport-layer-protocol.png)
 
-- **TCP（Transmission Control Protocol，传输控制协议 ）**：提供 **面向连接** 的，**可靠** 的数据传输服务。
+- **TCP（Transmission Control Protocol，传输控制协议）**：提供 **面向连接** 的，**可靠** 的数据传输服务。
 - **UDP（User Datagram Protocol，用户数据协议）**：提供 **无连接** 的，**尽最大努力** 的数据传输服务（不保证数据传输的可靠性），简单高效。
 
 #### 网络层有哪些常见的协议？
@@ -107,15 +107,15 @@ head:
 
 ## HTTP
 
-### ⭐️从输入 URL 到页面展示到底发生了什么？（非常重要）
+### ⭐️ 从输入 URL 到页面展示到底发生了什么？（非常重要）
 
 > 类似的问题：打开一个网页，整个过程会使用哪些协议？
 
 先来看一张图（来源于《图解 HTTP》）：
 
-<img src="https://oss.javaguide.cn/github/javaguide/url%E8%BE%93%E5%85%A5%E5%88%B0%E5%B1%95%E7%A4%BA%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%87%E7%A8%8B.jpg" alt="从输入 URL 到页面展示的完整流程" style="zoom:50%" />
+<img src="https://oss.javaguide.cn/github/javaguide/url%E8%BE%93%E5%85%A5%E5%88%B0%E5%B1%95%E7%A4%BA%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%87%E7%A8%8B.jpg" alt=“从输入 URL 到页面展示的完整流程” style="zoom:50%" />
 
-上图有一个错误需要注意：是 OSPF 不是 OPSF。 OSPF（Open Shortest Path First，ospf）开放最短路径优先协议, 是由 Internet 工程任务组开发的路由选择协议
+上图有一个错误需要注意：是 OSPF 不是 OPSF。OSPF（Open Shortest Path First，ospf）开放最短路径优先协议，是由 Internet 工程任务组开发的路由选择协议
 
 总体来说分为以下几个步骤:
 
@@ -129,7 +129,7 @@ head:
 
 详细介绍可以查看这篇文章：[访问网页的全过程（知识串联）](https://javaguide.cn/cs-basics/network/the-whole-process-of-accessing-web-pages.html)（强烈推荐）。
 
-### ⭐️HTTP 状态码有哪些？
+### ⭐️ HTTP 状态码有哪些？
 
 HTTP 状态码用于描述 HTTP 请求的结果，比如 2xx 就代表请求被成功处理。
 
@@ -153,10 +153,10 @@ HTTP 状态码用于描述 HTTP 请求的结果，比如 2xx 就代表请求被�
 | Content-MD5         | 请求体的内容的二进制 MD5 散列值，以 Base64 编码的结果                                                                                                                         | Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ==                                            |
 | Content-Type        | 请求体的多媒体类型（用于 POST 和 PUT 请求中）                                                                                                                                 | Content-Type: application/x-www-form-urlencoded                                  |
 | Cookie              | 之前由服务器通过 Set-Cookie（下文详述）发送的一个超文本传输协议 Cookie                                                                                                        | Cookie: $Version=1; Skin=new;                                                    |
-| Date                | 发送该消息的日期和时间(按照 RFC 7231 中定义的“超文本传输协议日期”格式来发送)                                                                                                  | Date: Tue, 15 Nov 1994 08:12:31 GMT                                              |
+| Date                | 发送该消息的日期和时间（按照 RFC 7231 中定义的“超文本传输协议日期”格式来发送）                                                                                                | Date: Tue, 15 Nov 1994 08:12:31 GMT                                              |
 | Expect              | 表明客户端要求服务器做出特定的行为                                                                                                                                            | Expect: 100-continue                                                             |
 | From                | 发起此请求的用户的邮件地址                                                                                                                                                    | From: `user@example.com`                                                         |
-| Host                | 服务器的域名(用于虚拟主机)，以及服务器所监听的传输控制协议端口号。如果所请求的端口是对应的服务的标准端口，则端口号可被省略。                                                  | Host: en.wikipedia.org                                                           |
+| Host                | 服务器的域名（用于虚拟主机），以及服务器所监听的传输控制协议端口号。如果所请求的端口是对应的服务的标准端口，则端口号可被省略。                                                | Host: en.wikipedia.org                                                           |
 | If-Match            | 仅当客户端提供的实体与服务器上对应的实体相匹配时，才进行对应的操作。主要作用是用于像 PUT 这样的方法中，仅当从用户上次更新某个资源以来，该资源未被修改的情况下，才更新该资源。 | If-Match: "737060cd8c284d8af7ad3082f209582d"                                     |
 | If-Modified-Since   | 允许服务器在请求的资源自指定的日期以来未被修改的情况下返回 `304 Not Modified` 状态码                                                                                          | If-Modified-Since: Sat, 29 Oct 1994 19:43:31 GMT                                 |
 | If-None-Match       | 允许服务器在请求的资源的 ETag 未发生变化的情况下返回 `304 Not Modified` 状态码                                                                                                | If-None-Match: "737060cd8c284d8af7ad3082f209582d"                                |
@@ -174,7 +174,7 @@ HTTP 状态码用于描述 HTTP 请求的结果，比如 2xx 就代表请求被�
 | Via                 | 向服务器告知，这个请求是由哪些代理发出的。                                                                                                                                    | Via: 1.0 fred, 1.1 example.com (Apache/1.1)                                      |
 | Warning             | 一个一般性的警告，告知，在实体内容体中可能存在错误。                                                                                                                          | Warning: 199 Miscellaneous warning                                               |
 
-### ⭐️HTTP 和 HTTPS 有什么区别？（重要）
+### ⭐️ HTTP 和 HTTPS 有什么区别？（重要）
 
 ![HTTP 和 HTTPS 对比](https://oss.javaguide.cn/github/javaguide/cs-basics/network/http-vs-https.png)
 
@@ -183,7 +183,7 @@ HTTP 状态码用于描述 HTTP 请求的结果，比如 2xx 就代表请求被�
 - **安全性和资源消耗**：HTTP 协议运行在 TCP 之上，所有传输的内容都是明文，客户端和服务器端都无法验证对方的身份。HTTPS 是运行在 SSL/TLS 之上的 HTTP 协议，SSL/TLS 运行在 TCP 之上。所有传输的内容都经过加密，加密采用对称加密，但对称加密的密钥用服务器方的证书进行了非对称加密。所以说，HTTP 安全性没有 HTTPS 高，但是 HTTPS 比 HTTP 耗费更多服务器资源。
 - **SEO（搜索引擎优化）**：搜索引擎通常会更青睐使用 HTTPS 协议的网站，因为 HTTPS 能够提供更高的安全性和用户隐私保护。使用 HTTPS 协议的网站在搜索结果中可能会被优先显示，从而对 SEO 产生影响。
 
-关于 HTTP 和 HTTPS 更详细的对比总结，可以看我写的这篇文章：[HTTP vs HTTPS（应用层）](https://javaguide.cn/cs-basics/network/http-vs-https.html) 。
+关于 HTTP 和 HTTPS 更详细的对比总结，可以看我写的这篇文章：[HTTP vs HTTPS（应用层）](https://javaguide.cn/cs-basics/network/http-vs-https.html)。
 
 ### HTTPS 握手里的 RSA 和 ECDHE，到底差在哪？（应用层）
 
@@ -197,7 +197,7 @@ ECDHE 不直接传输共享秘密。客户端和服务端各自生成临时密�
 
 详细介绍：[HTTPS 握手里的 RSA 和 ECDHE，到底差在哪？（应用层）](./https-rsa-vs-ecdhe)
 
-### ⭐️有了HTTP，为什么还要RPC？
+### ⭐️ 有了 HTTP，为什么还要 RPC？
 
 HTTP 和 RPC 不是谁取代谁的关系，也不是谁更高级的问题。
 
@@ -228,16 +228,16 @@ HTTP 能调服务，RPC 也能调服务。真正的区别在于，你是想把�
 - **带宽**：HTTP/1.0 中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，HTTP/1.1 则在请求头引入了 range 头域，它允许只请求资源的某个部分，即返回码是 206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。
 - **Host 头（Host Header）处理**：HTTP/1.1 引入了 Host 头字段，允许在同一 IP 地址上托管多个域名，从而支持虚拟主机的功能。而 HTTP/1.0 没有 Host 头字段，无法实现虚拟主机。
 
-关于 HTTP/1.0 和 HTTP/1.1 更详细的对比总结，可以看我写的这篇文章：[HTTP/1.0 vs HTTP/1.1（应用层）](https://javaguide.cn/cs-basics/network/http1.0-vs-http1.1.html) 。
+关于 HTTP/1.0 和 HTTP/1.1 更详细的对比总结，可以看我写的这篇文章：[HTTP/1.0 vs HTTP/1.1（应用层）](https://javaguide.cn/cs-basics/network/http1.0-vs-http1.1.html)。
 
-### ⭐️HTTP/1.1 和 HTTP/2.0 有什么区别？
+### ⭐️ HTTP/1.1 和 HTTP/2.0 有什么区别？
 
 ![HTTP/1.0 和 HTTP/1.1 对比](https://oss.javaguide.cn/github/javaguide/cs-basics/network/http1.1-vs-http2.0.png)
 
 - **多路复用（Multiplexing）**：HTTP/2.0 在同一连接上可以同时传输多个请求和响应（可以看作是 HTTP/1.1 中长链接的升级版本），互不干扰。HTTP/1.1 则使用串行方式，每个请求和响应都需要独立的连接，而浏览器为了控制资源会有 6-8 个 TCP 连接的限制。这使得 HTTP/2.0 在处理多个请求时更加高效，减少了网络延迟和提高了性能。
 - **二进制帧（Binary Frames）**：HTTP/2.0 使用二进制帧进行数据传输，而 HTTP/1.1 则使用文本格式的报文。二进制帧更加紧凑和高效，减少了传输的数据量和带宽消耗。
 - **队头阻塞**：HTTP/2 引入了多路复用技术，允许多个请求和响应在单个 TCP 连接上并行交错传输，解决了 HTTP/1.1 应用层的队头阻塞问题，但 HTTP/2 依然受到 TCP 层队头阻塞的影响。
-- **头部压缩（Header Compression）**：HTTP/1.1 支持`Body`压缩，`Header`不支持压缩。HTTP/2.0 支持对`Header`压缩，使用了专门为`Header`压缩而设计的 HPACK 算法，减少了网络开销。
+- **头部压缩（Header Compression）**：HTTP/1.1 支持 `Body` 压缩，`Header` 不支持压缩。HTTP/2.0 支持对 `Header` 压缩，使用了专门为 `Header` 压缩而设计的 HPACK 算法，减少了网络开销。
 - **服务器推送（Server Push）**：HTTP/2.0 支持服务器推送，可以在客户端请求一个资源时，将其他相关资源一并推送给客户端，从而减少了客户端的请求次数和延迟。而 HTTP/1.1 需要客户端自己发送请求来获取相关资源。
 
 HTTP/2.0 多路复用效果图（图源： [HTTP/2 For Web Developers](https://blog.cloudflare.com/http-2-for-web-developers/)）：
@@ -250,7 +250,7 @@ HTTP/2.0 多路复用效果图（图源： [HTTP/2 For Web Developers](https://b
 
 ![HTTP/2.0 和 HTTP/3.0 对比](https://oss.javaguide.cn/github/javaguide/cs-basics/network/http2.0-vs-http3.0.png)
 
-- **传输协议**：HTTP/2.0 是基于 TCP 协议实现的，HTTP/3.0 新增了 QUIC（Quick UDP Internet Connections） 协议来实现可靠的传输，提供与 TLS/SSL 相当的安全性，具有较低的连接和传输延迟。你可以将 QUIC 看作是 UDP 的升级版本，在其基础上新增了很多功能比如加密、重传等等。HTTP/3.0 之前名为 HTTP-over-QUIC，从这个名字中我们也可以发现，HTTP/3 最大的改造就是使用了 QUIC。
+- **传输协议**：HTTP/2.0 是基于 TCP 协议实现的，HTTP/3.0 新增了 QUIC（Quick UDP Internet Connections）协议来实现可靠的传输，提供与 TLS/SSL 相当的安全性，具有较低的连接和传输延迟。你可以将 QUIC 看作是 UDP 的升级版本，在其基础上新增了很多功能比如加密、重传等等。HTTP/3.0 之前名为 HTTP-over-QUIC，从这个名字中我们也可以发现，HTTP/3 最大的改造就是使用了 QUIC。
 - **连接建立**：HTTP/2.0 需要经过经典的 TCP 三次握手过程（由于安全的 HTTPS 连接建立还需要 TLS 握手，共需要大约 3 个 RTT）。由于 QUIC 协议的特性（TLS 1.3，TLS 1.3 除了支持 1 个 RTT 的握手，还支持 0 个 RTT 的握手）连接建立仅需 0-RTT 或者 1-RTT。这意味着 QUIC 在最佳情况下不需要任何的额外往返时间就可以建立新连接。
 - **头部压缩**：HTTP/2.0 使用 HPACK 算法进行头部压缩，而 HTTP/3.0 使用更高效的 QPACK 头压缩算法。
 - **队头阻塞**：HTTP/2.0 多请求复用一个 TCP 连接，一旦发生丢包，就会阻塞住所有的 HTTP 请求。由于 QUIC 协议的特性，HTTP/3.0 在一定程度上解决了队头阻塞（Head-of-Line blocking, 简写：HOL blocking）问题，一个连接建立多个不同的数据流，这些数据流之间独立互不影响，某个数据流发生丢包了，其数据流不受影响（本质上是多路复用+轮询）。
@@ -288,21 +288,21 @@ HTTP/1.1 队头阻塞的主要原因是无法多路复用：
 
 最后，来一张表格总结补充一下：
 
-| **方面**       | **HTTP/1.1 的队头阻塞**                  | **HTTP/2.0 的队头阻塞**                                          |
-| -------------- | ---------------------------------------- | ---------------------------------------------------------------- |
-| **层级**       | 应用层（HTTP 协议本身的限制）            | 传输层（TCP 协议的限制）                                         |
-| **根本原因**   | 无法多路复用，请求和响应必须按顺序传输   | TCP 要求数据包按顺序交付，丢包时阻塞整个连接                     |
-| **受影响范围** | 单个 HTTP 请求/响应会阻塞后续请求/响应。 | 单个 TCP 包丢失会影响所有 HTTP/2.0 流(依赖于同一个底层 TCP 连接) |
-| **缓解方法**   | 开启多个并行的 TCP 连接                  | 减少网络掉包或者使用基于 UDP 的 QUIC 协议                        |
-| **影响场景**   | 每次都会发生，尤其是大文件阻塞小文件时。 | 丢包率较高的网络环境下更容易发生。                               |
+| **方面**       | **HTTP/1.1 的队头阻塞**                  | **HTTP/2.0 的队头阻塞**                                            |
+| -------------- | ---------------------------------------- | ------------------------------------------------------------------ |
+| **层级**       | 应用层（HTTP 协议本身的限制）            | 传输层（TCP 协议的限制）                                           |
+| **根本原因**   | 无法多路复用，请求和响应必须按顺序传输   | TCP 要求数据包按顺序交付，丢包时阻塞整个连接                       |
+| **受影响范围** | 单个 HTTP 请求/响应会阻塞后续请求/响应。 | 单个 TCP 包丢失会影响所有 HTTP/2.0 流（依赖于同一个底层 TCP 连接） |
+| **缓解方法**   | 开启多个并行的 TCP 连接                  | 减少网络掉包或者使用基于 UDP 的 QUIC 协议                          |
+| **影响场景**   | 每次都会发生，尤其是大文件阻塞小文件时。 | 丢包率较高的网络环境下更容易发生。                                 |
 
-### ⭐️HTTP 是不保存状态的协议, 如何保存用户状态?
+### ⭐️ HTTP 是不保存状态的协议，如何保存用户状态？
 
-HTTP 协议本身是 **无状态的 (stateless)** 。这意味着服务器默认情况下无法区分两个连续的请求是否来自同一个用户，或者同一个用户之前的操作是什么。这就像一个“健忘”的服务员，每次你跟他说话，他都不知道你是谁，也不知道你之前点过什么菜。
+HTTP 协议本身是 **无状态的（stateless）**。这意味着服务器默认情况下无法区分两个连续的请求是否来自同一个用户，或者同一个用户之前的操作是什么。这就像一个“健忘”的服务员，每次你跟他说话，他都不知道你是谁，也不知道你之前点过什么菜。
 
 但在实际的 Web 应用中，比如网上购物、用户登录等场景，我们显然需要记住用户的状态（例如购物车里的商品、用户的登录信息）。为了解决这个问题，主要有以下几种常用机制：
 
-**方案一：Session (会话) 配合 Cookie (主流方式)：**
+**方案一：Session（会话）配合 Cookie（主流方式）：**
 
 ![Session 配合 Cookie 保存用户登录状态的流程](https://oss.javaguide.cn/github/javaguide/system-design/security/session-cookie-authentication-process.png)
 
@@ -323,10 +323,10 @@ HTTP 协议本身是 **无状态的 (stateless)** 。这意味着服务器默认
 Session 数据本身存储在服务器端。常见的存储方式有：
 
 - **服务器内存**：实现简单，访问速度快，但服务器重启数据会丢失，且不利于多服务器间的负载均衡。这种方式适合简单且用户量不大的业务场景。
-- **数据库 (如 MySQL, PostgreSQL)**：数据持久化，但读写性能相对较低，一般不会使用这种方式。
-- **分布式缓存 (如 Redis)**：性能高，支持分布式部署，是目前大规模应用中非常主流的方案。
+- **数据库（如 MySQL, PostgreSQL）**：数据持久化，但读写性能相对较低，一般不会使用这种方式。
+- **分布式缓存（如 Redis）**：性能高，支持分布式部署，是目前大规模应用中非常主流的方案。
 
-**方案二：当 Cookie 被禁用时：URL 重写 (URL Rewriting)**
+**方案二：当 Cookie 被禁用时：URL 重写（URL Rewriting）**
 
 如果用户的浏览器禁用了 Cookie，或者某些情况下不便使用 Cookie，还有一种备选方案是 URL 重写。这种方式会将 `SessionID` 直接附加到 URL 的末尾，作为参数传递。例如：<http://www.example.com/page?sessionid=xxxxxx>。服务器端会解析 URL 中的 `sessionid` 参数来获取 `SessionID`，进而找到对应的 Session 数据。
 
@@ -334,9 +334,9 @@ Session 数据本身存储在服务器端。常见的存储方式有：
 
 - URL 会变长且不美观；
 - `SessionID` 暴露在 URL 中，安全性较低（容易被复制、分享或记录在日志中）；
-- 对搜索引擎优化 (SEO) 可能不友好。
+- 对搜索引擎优化（SEO）可能不友好。
 
-**方案三：Token-based 认证 (如 JWT - JSON Web Tokens)**
+**方案三：Token-based 认证（如 JWT - JSON Web Tokens）**
 
 这是一种越来越流行的无状态认证方式，尤其适用于前后端分离的架构和微服务。
 
@@ -357,10 +357,10 @@ JWT 详细介绍可以查看这两篇文章：
 
 总结来说，虽然 HTTP 本身是无状态的，但通过 Cookie + Session、URL 重写或 Token 等机制，我们能够有效地在 Web 应用中跟踪和管理用户状态。其中，**Cookie + Session 是最传统也最广泛使用的方式，而 Token-based 认证则在现代 Web 应用中越来越受欢迎。**
 
-### URI 和 URL 的区别是什么?
+### URI 和 URL 的区别是什么？
 
-- URI(Uniform Resource Identifier) 是统一资源标志符，可以唯一标识一个资源。
-- URL(Uniform Resource Locator) 是统一资源定位符，可以提供该资源的路径。它是一种具体的 URI，即 URL 可以用来标识一个资源，而且还指明了如何 locate 这个资源。
+- URI（Uniform Resource Identifier）是统一资源标志符，可以唯一标识一个资源。
+- URL（Uniform Resource Locator）是统一资源定位符，可以提供该资源的路径。它是一种具体的 URI，即 URL 可以用来标识一个资源，而且还指明了如何 locate 这个资源。
 
 URI 的作用像身份证号一样，URL 的作用更像家庭住址一样。URL 是一种具体的 URI，它不仅唯一标识资源，而且还提供了定位该资源的信息。
 
@@ -368,9 +368,9 @@ URI 的作用像身份证号一样，URL 的作用更像家庭住址一样。URL
 
 准确点来说，这个问题属于认证授权的范畴，你可以在 [认证授权基础概念详解](https://javaguide.cn/system-design/security/basis-of-authority-certification.html) 这篇文章中找到详细的答案。
 
-### ⭐️GET 和 POST 的区别
+### ⭐️ GET 和 POST 的区别
 
-这个问题在知乎上被讨论的挺火热的，地址：<https://www.zhihu.com/question/28586791> 。
+这个问题在知乎上被讨论的挺火热的，地址：<https://www.zhihu.com/question/28586791>。
 
 GET 和 POST 是 HTTP 协议中两种常用的请求方法，它们在不同的场景和目的下有不同的特点和用法。一般来说，可以从以下几个方面来区分二者（重点搞清两者在语义上的区别即可）：
 
@@ -403,14 +403,14 @@ WebSocket 协议本质上是应用层的协议，用于弥补 HTTP 协议在持�
 - 社交聊天
 - ……
 
-### ⭐️WebSocket 和 HTTP 有什么区别？
+### ⭐️ WebSocket 和 HTTP 有什么区别？
 
 WebSocket 和 HTTP 两者都是基于 TCP 的应用层协议，都可以在网络中传输数据。
 
 下面是二者的主要区别：
 
 - WebSocket 是一种双向实时通信协议，而 HTTP 是一种单向通信协议。并且，HTTP 协议下的通信只能由客户端发起，服务器无法主动通知客户端。
-- WebSocket 使用 ws:// 或 wss://（使用 SSL/TLS 加密后的协议，类似于 HTTP 和 HTTPS 的关系） 作为协议前缀，HTTP 使用 http:// 或 https:// 作为协议前缀。
+- WebSocket 使用 ws:// 或 wss://（使用 SSL/TLS 加密后的协议，类似于 HTTP 和 HTTPS 的关系）作为协议前缀，HTTP 使用 http:// 或 https:// 作为协议前缀。
 - WebSocket 可以支持扩展，用户可以扩展协议，实现部分自定义的子协议，如支持压缩、加密等。
 - WebSocket 通信数据格式比较轻量，用于协议控制的数据包头部相对较小，网络开销小，而 HTTP 通信每次都要携带完整的头部，网络开销较大（HTTP/2.0 使用二进制帧进行数据传输，还支持头部压缩，减少了网络开销）。
 
@@ -425,7 +425,7 @@ WebSocket 的工作过程可以分为以下几个步骤：
 
 另外，建立 WebSocket 连接之后，通过心跳机制来保持 WebSocket 连接的稳定性和活跃性。
 
-### ⭐️WebSocket 与短轮询、长轮询的区别
+### ⭐️ WebSocket 与短轮询、长轮询的区别
 
 这三种方式，都是为了解决“**客户端如何及时获取服务器最新数据，实现实时更新**”的问题。它们的实现方式和效率、实时性差异较大。
 
@@ -460,13 +460,13 @@ WebSocket 的工作过程可以分为以下几个步骤：
 
 ![WebSocket 与短轮询和长轮询的通信方式对比](https://oss.javaguide.cn/github/javaguide/system-design/web-real-time-message-push/1460000042192394.png)
 
-### ⭐️SSE 与 WebSocket 有什么区别？
+### ⭐️ SSE 与 WebSocket 有什么区别？
 
-SSE (Server-Sent Events) 和 WebSocket 都是用来实现服务器向浏览器实时推送消息的技术，让网页内容能自动更新，而不需要用户手动刷新。虽然目标相似，但它们在工作方式和适用场景上有几个关键区别：
+SSE（Server-Sent Events）和 WebSocket 都是用来实现服务器向浏览器实时推送消息的技术，让网页内容能自动更新，而不需要用户手动刷新。虽然目标相似，但它们在工作方式和适用场景上有几个关键区别：
 
 1. **通信方式:**
    - **SSE:** **单向通信**。只有服务器能向客户端（浏览器）发送数据。客户端不能通过同一个连接向服务器发送数据（需要发起新的 HTTP 请求）。
-   - **WebSocket:** **双向通信 (全双工)**。客户端和服务器可以随时互相发送消息，实现真正的实时交互。
+   - **WebSocket:** **双向通信（全双工）**。客户端和服务器可以随时互相发送消息，实现真正的实时交互。
 2. **底层协议:**
    - **SSE:** 基于**标准的 HTTP/HTTPS 协议**。它本质上是一个“长连接”的 HTTP 请求，服务器保持连接打开并持续发送事件流。不需要特殊的服务器或协议支持，现有的 HTTP 基础设施就能用。
    - **WebSocket:** 使用**独立的 ws:// 或 wss:// 协议**。它需要通过一个特定的 HTTP "Upgrade" 请求来建立连接，并且服务器需要明确支持 WebSocket 协议来处理连接和消息帧。
@@ -477,10 +477,10 @@ SSE (Server-Sent Events) 和 WebSocket 都是用来实现服务器向浏览器�
    - **SSE:** **浏览器原生支持**。EventSource API 提供了自动断线重连的机制。
    - **WebSocket:** **需要手动实现**。开发者需要自己编写逻辑来检测断线并进行重连尝试。
 5. **数据类型:**
-   - **SSE:** **主要设计用来传输文本** (UTF-8 编码)。如果需要传输二进制数据，需要先进行 Base64 等编码转换成文本。
+   - **SSE:** **主要设计用来传输文本**（UTF-8 编码）。如果需要传输二进制数据，需要先进行 Base64 等编码转换成文本。
    - **WebSocket:** **原生支持传输文本和二进制数据**，无需额外编码。
 
-为了提供更好的用户体验和利用其简单、高效、基于标准 HTTP 的特性，**Server-Sent Events (SSE) 是目前大型语言模型 API（如 OpenAI、DeepSeek 等）实现流式响应的常用甚至可以说是标准的技术选择**。
+为了提供更好的用户体验和利用其简单、高效、基于标准 HTTP 的特性，**Server-Sent Events（SSE）是目前大型语言模型 API（如 OpenAI、DeepSeek 等）实现流式响应的常用甚至可以说是标准的技术选择**。
 
 这里以 DeepSeek 为例，我们发送一个请求并打开浏览器控制台验证一下：
 
@@ -531,12 +531,12 @@ ICMP 报文中包含了类型字段，用于标识 ICMP 报文类型。ICMP 报�
 - **查询报文类型**：向目标主机发送请求并期望得到响应。
 - **差错报文类型**：向源主机发送错误信息，用于报告网络中的错误情况。
 
-PING 用到的 ICMP Echo Request（类型为 8 ） 和 ICMP Echo Reply（类型为 0） 属于查询报文类型 。
+PING 用到的 ICMP Echo Request（类型为 8）和 ICMP Echo Reply（类型为 0）属于查询报文类型。
 
 - PING 命令会向目标主机发送 ICMP Echo Request。
 - 如果两个主机的连通性正常，目标主机会返回一个对应的 ICMP Echo Reply。
 
-### ⭐️能 Ping 通，TCP 就一定能连通吗？
+### ⭐️ 能 Ping 通，TCP 就一定能连通吗？
 
 先说结论：**不是**。
 
@@ -569,22 +569,22 @@ DNS（Domain Name System）域名管理系统，是当用户使用浏览器访�
 
 在一台电脑上，可能存在浏览器 DNS 缓存，操作系统 DNS 缓存，路由器 DNS 缓存。如果以上缓存都查询不到，那么 DNS 就闪亮登场了。
 
-目前 DNS 的设计采用的是分布式、层次数据库结构，**DNS 是应用层协议，它可以在 UDP 或 TCP 协议之上运行，端口为 53** 。
+目前 DNS 的设计采用的是分布式、层次数据库结构，**DNS 是应用层协议，它可以在 UDP 或 TCP 协议之上运行，端口为 53**。
 
 ### DNS 服务器有哪些？根服务器有多少个？
 
-DNS 服务器自底向上可以依次分为以下几个层级(所有 DNS 服务器都属于以下四个类别之一):
+DNS 服务器自底向上可以依次分为以下几个层级（所有 DNS 服务器都属于以下四个类别之一）:
 
 - 根 DNS 服务器。根 DNS 服务器提供 TLD 服务器的 IP 地址。目前世界上只有 13 组根服务器，我国境内目前仍没有根服务器。
-- 顶级域 DNS 服务器（TLD 服务器）。顶级域是指域名的后缀，如`com`、`org`、`net`和`edu`等。国家也有自己的顶级域，如`uk`、`fr`和`ca`。TLD 服务器提供了权威 DNS 服务器的 IP 地址。
+- 顶级域 DNS 服务器（TLD 服务器）。顶级域是指域名的后缀，如 `com`、`org`、`net` 和 `edu` 等。国家也有自己的顶级域，如 `uk`、`fr` 和 `ca`。TLD 服务器提供了权威 DNS 服务器的 IP 地址。
 - 权威 DNS 服务器。在因特网上具有公共可访问主机的每个组织机构必须提供公共可访问的 DNS 记录，这些记录将这些主机的名字映射为 IP 地址。
 - 本地 DNS 服务器。每个 ISP（互联网服务提供商）都有一个自己的本地 DNS 服务器。当主机发出 DNS 请求时，该请求被发往本地 DNS 服务器，它起着代理的作用，并将该请求转发到 DNS 层次结构中。严格说来，不属于 DNS 层级结构
 
 世界上并不是只有 13 台根服务器，这是很多人普遍的误解，网上很多文章也是这么写的。实际上，现在根服务器数量远远超过这个数量。最初确实是为 DNS 根服务器分配了 13 个 IP 地址，每个 IP 地址对应一个不同的根 DNS 服务器。然而，由于互联网的快速发展和增长，这个原始的架构变得不太适应当前的需求。为了提高 DNS 的可靠性、安全性和性能，目前这 13 个 IP 地址中的每一个都有多个服务器，截止到 2023 年底，所有根服务器之和达到了 1700 多台，未来还会继续增加。
 
-### ⭐️DNS 解析的过程是什么样的？
+### ⭐️ DNS 解析的过程是什么样的？
 
-整个过程的步骤比较多，我单独写了一篇文章详细介绍：[DNS 域名系统详解（应用层）](https://javaguide.cn/cs-basics/network/dns.html) 。
+整个过程的步骤比较多，我单独写了一篇文章详细介绍：[DNS 域名系统详解（应用层）](https://javaguide.cn/cs-basics/network/dns.html)。
 
 ### DNS 劫持了解吗？如何应对？
 
@@ -597,6 +597,6 @@ DNS 劫持是一种网络攻击，它通过修改 DNS 服务器的解析结果�
 - 详解 HTTP/2.0 及 HTTPS 协议：<https://juejin.cn/post/7034668672262242318>
 - HTTP 请求头字段大全| HTTP Request Headers：<https://www.flysnow.org/tools/table/http-request-headers/>
 - HTTP1、HTTP2、HTTP3：<https://juejin.cn/post/6855470356657307662>
-- 如何看待 HTTP/3 ？ - 车小胖的回答 - 知乎: <https://www.zhihu.com/question/302412059/answer/533223530>
+- 如何看待 HTTP/3？ - 车小胖的回答 - 知乎: <https://www.zhihu.com/question/302412059/answer/533223530>
 
 <!-- @include: @article-footer.snippet.md -->
