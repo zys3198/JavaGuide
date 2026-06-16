@@ -1,0 +1,206 @@
+<mxfile host="Electron" agent="drawio-chart" pages="4">
+  <diagram name="memory-write-pipeline" id="d1">
+    <mxGraphModel dx="1160" dy="697" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="820" pageHeight="520" background="#F8FAFC" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n1-title" parent="1" style="text;html=0;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=20;fontStyle=1;fontColor=#2D3748;" value="记忆写入" vertex="1">
+          <mxGeometry height="36" width="200" x="275" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="n1-frame1" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#F8FAFC;strokeColor=#0891B2;dashed=1;strokeWidth=2;fontColor=#2D3748;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;" value="" vertex="1">
+          <mxGeometry height="200" width="720" x="50" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="n1-user" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#0891B2;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="用户输入" vertex="1">
+          <mxGeometry height="45" width="140" x="90" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="n1-agent" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#E99151;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="Agent 推理" vertex="1">
+          <mxGeometry height="45" width="160" x="305" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="n1-reply" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#0891B2;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="Agent 回复" vertex="1">
+          <mxGeometry height="45" width="160" x="530" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="n1-write" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#4CA497;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="写 .md + frontmatter + MEMORY.md&#xa;// Writing memory //" vertex="1">
+          <mxGeometry height="60" width="280" x="245" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="n1-e1" edge="1" parent="1" source="n1-user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;" target="n1-agent" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n1-e2" edge="1" parent="1" source="n1-agent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;" target="n1-reply" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n1-e3" edge="1" parent="1" source="n1-agent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;labelBackgroundColor=#F8FAFC;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=14;fontColor=#64748B;" target="n1-write" value="值得记?">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n1-frame2" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#F8FAFC;strokeColor=#94A3B8;dashed=1;strokeWidth=2;fontColor=#2D3748;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;" value="" vertex="1">
+          <mxGeometry height="165" width="720" x="50" y="310.5" as="geometry" />
+        </mxCell>
+        <mxCell id="n1-adt" parent="1" style="rounded=1;whiteSpace=wrap;dashed=1;fillColor=#F8FAFC;strokeColor=#94A3B8;fontColor=#64748B;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=0;" value="定时触发" vertex="1">
+          <mxGeometry height="45" width="130" x="100" y="367.5" as="geometry" />
+        </mxCell>
+        <mxCell id="n1-ads" parent="1" style="rounded=1;whiteSpace=wrap;dashed=1;fillColor=#F8FAFC;strokeColor=#94A3B8;fontColor=#64748B;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=0;" value="扫描记忆目录" vertex="1">
+          <mxGeometry height="45" width="140" x="325" y="367.5" as="geometry" />
+        </mxCell>
+        <mxCell id="n1-adm" parent="1" style="rounded=1;whiteSpace=wrap;dashed=1;fillColor=#F8FAFC;strokeColor=#E99151;fontColor=#E99151;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=0;" value="合并重复&#xa;修剪过期" vertex="1">
+          <mxGeometry height="50" width="160" x="550" y="365" as="geometry" />
+        </mxCell>
+        <mxCell id="n1-ae1" edge="1" parent="1" source="n1-adt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;dashed=1;strokeWidth=2;strokeColor=#94A3B8;" target="n1-ads" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n1-ae2" edge="1" parent="1" source="n1-ads" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;dashed=1;strokeWidth=2;strokeColor=#94A3B8;" target="n1-adm" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2J7yBLjiedz73wo33SoB-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;span style=&quot;color: rgb(45, 55, 72); font-family: system-ui, -apple-system, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, sans-serif; font-size: 15px;&quot;&gt;Auto Memory（会话中）实时写入&lt;/span&gt;" vertex="1">
+          <mxGeometry height="30" width="260" x="255" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2J7yBLjiedz73wo33SoB-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;span style=&quot;color: rgb(45, 55, 72); font-family: system-ui, -apple-system, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, sans-serif; font-size: 15px;&quot;&gt;Auto Dream (后台定时) 整理剪枝&lt;/span&gt;" vertex="1">
+          <mxGeometry height="30" width="320" x="230" y="320" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="memory-retrieval-pipeline" id="d2">
+    <mxGraphModel dx="1289" dy="774" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="780" pageHeight="680" background="#F8FAFC" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="w2-title" parent="1" style="text;html=0;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=20;fontStyle=1;fontColor=#2D3748;" value="记忆检索管线" vertex="1">
+          <mxGeometry height="36" width="240" x="270" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="w2-a" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#4CA497;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="读frontmatter&#xa;只取name+desc" vertex="1">
+          <mxGeometry height="55" width="210" x="285" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="w2-b" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#94A3B8;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="候选清单+Query" vertex="1">
+          <mxGeometry height="50" width="180" x="300" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="w2-c" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#E99151;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="中型模型&#xa;结构化输出JSON" vertex="1">
+          <mxGeometry height="55" width="210" x="285" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="w2-d1" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#E99151;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="过滤1&#xa;已注入不重复" vertex="1">
+          <mxGeometry height="50" width="210" x="285" y="345" as="geometry" />
+        </mxCell>
+        <mxCell id="w2-d2" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#E99151;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="过滤2&#xa;工具用法跳过·踩坑保留" vertex="1">
+          <mxGeometry height="55" width="240" x="270" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="w2-e" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#4CA497;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="注入上下文&#xa;带时效标记" vertex="1">
+          <mxGeometry height="55" width="200" x="290" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="w2-e1" edge="1" parent="1" source="w2-a" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;" target="w2-b" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w2-e2" edge="1" parent="1" source="w2-b" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;" target="w2-c" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w2-e3" edge="1" parent="1" source="w2-c" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;" target="w2-d1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w2-e4" edge="1" parent="1" source="w2-d1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;" target="w2-d2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w2-e5" edge="1" parent="1" source="w2-d2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;" target="w2-e" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="claude-md-four-layers" id="d3">
+    <mxGraphModel dx="1289" dy="774" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="680" background="#F8FAFC" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="w3-title" parent="1" style="text;html=0;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=20;fontStyle=1;fontColor=#2D3748;" value="CLAUDE.md 四层级" vertex="1">
+          <mxGeometry height="36" width="200" x="340" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="w3-arrow" edge="1" parent="1" style="endArrow=block;endFill=1;strokeWidth=2;strokeColor=#94A3B8;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="340" as="sourcePoint" />
+            <mxPoint x="130" y="75" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w3-top" parent="1" style="text;html=0;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=13;fontColor=#64748B;" value="高优先级" vertex="1">
+          <mxGeometry height="30" width="130" x="60" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="w3-bot" parent="1" style="text;html=0;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=13;fontColor=#64748B;" value="低优先级" vertex="1">
+          <mxGeometry height="30" width="130" x="60" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="w3-l4" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#E99151;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="Local&#xa;./CLAUDE.local.md · 个人本项 (.gitignore)" vertex="1">
+          <mxGeometry height="55" width="500" x="200" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="w3-l3" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#0891B2;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="Project&#xa;./CLAUDE.md · 团队共享 (git)" vertex="1">
+          <mxGeometry height="55" width="500" x="200" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="w3-l2" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#4CA497;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="User&#xa;~/.claude/CLAUDE.md · 个人全域" vertex="1">
+          <mxGeometry height="55" width="500" x="200" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="w3-l1" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#64748B;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="Managed&#xa;系统级路径 · 组织全员" vertex="1">
+          <mxGeometry height="55" width="500" x="200" y="305" as="geometry" />
+        </mxCell>
+        <mxCell id="w3-n1" parent="1" style="text;html=0;align=left;verticalAlign=middle;resizable=0;points=[];fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=12;fontColor=#94A3B8;" value="注入位置: user message, 非 system prompt&#xa;模型可能忽略 — 不强制, 只引导" vertex="1">
+          <mxGeometry height="40" width="500" x="200" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="w3-n2" parent="1" style="text;html=0;align=left;verticalAlign=middle;resizable=0;points=[];fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=12;fontColor=#94A3B8;" value="hook (PreToolUse): 客户端层硬拦, 强制执行&#xa;CLAUDE.md 引导 vs hook 强制, 两套分工" vertex="1">
+          <mxGeometry height="40" width="500" x="200" y="455" as="geometry" />
+        </mxCell>
+        <mxCell id="w3-n3" parent="1" style="text;html=0;align=left;verticalAlign=middle;resizable=0;points=[];fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=12;fontColor=#94A3B8;" value="指令三档: CLAUDE.md 常驻 → path-scoped rules 按路径按需 → skill 按触发不常驻&#xa;@import: 全量展开不减token, ≤4跳, 首次引外部文件弹审批门" vertex="1">
+          <mxGeometry height="40" width="550" x="200" y="510" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="multi-agent-jsonl-comm" id="d4">
+    <mxGraphModel dx="1160" dy="697" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="820" pageHeight="520" background="#F8FAFC" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="w4-title" parent="1" style="text;html=0;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=20;fontStyle=1;fontColor=#2D3748;" value="多Agent JSONL 通信" vertex="1">
+          <mxGeometry height="36" width="260" x="280" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="w4-planner" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#0891B2;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="planner" vertex="1">
+          <mxGeometry height="55" width="150" x="60" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="w4-executor" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#0891B2;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="executor" vertex="1">
+          <mxGeometry height="55" width="150" x="610" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="w4-pinbox" parent="1" style="shape=cylinder3;whiteSpace=wrap;fillColor=#4CA497;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="planner.jsonl&#xa;(信箱)" vertex="1">
+          <mxGeometry height="70" width="150" x="60" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="w4-einbox" parent="1" style="shape=cylinder3;whiteSpace=wrap;fillColor=#4CA497;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="executor.jsonl&#xa;(信箱)" vertex="1">
+          <mxGeometry height="70" width="150" x="610" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="w4-config" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#005D7B;strokeColor=none;fontColor=#FFFFFF;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=15;shadow=1;" value="config.json&#xa;成员/任务/活跃时间" vertex="1">
+          <mxGeometry height="65" width="180" x="320" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="w4-poll" parent="1" style="text;html=0;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=12;fontColor=#94A3B8;" value="每轮推理前轮询自己信箱&#xa;读后清空" vertex="1">
+          <mxGeometry height="40" width="240" x="290" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="w4-e1" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;labelBackgroundColor=#F8FAFC;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=13;fontColor=#64748B;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=45;entryPerimeter=0;" target="w4-einbox" value="写消息(追加尾)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="140" />
+              <mxPoint x="160" y="200" />
+              <mxPoint x="550" y="200" />
+              <mxPoint x="550" y="310" />
+            </Array>
+            <mxPoint x="173" y="140" as="sourcePoint" />
+            <mxPoint x="600" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w4-e2" edge="1" parent="1" source="w4-einbox" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;labelBackgroundColor=#F8FAFC;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=13;fontColor=#64748B;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="w4-executor" value="读+清空">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w4-e3" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;labelBackgroundColor=#F8FAFC;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=13;fontColor=#64748B;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" value="写消息(追加尾)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="635.5" y="225" />
+              <mxPoint x="159.5" y="225" />
+            </Array>
+            <mxPoint x="635" y="140" as="sourcePoint" />
+            <mxPoint x="160" y="265" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w4-e4" edge="1" parent="1" source="w4-pinbox" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeWidth=2;strokeColor=#94A3B8;labelBackgroundColor=#F8FAFC;fontFamily=system-ui, -apple-system, PingFang SC, Microsoft YaHei, sans-serif;fontSize=13;fontColor=#64748B;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="w4-planner" value="读+清空">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
